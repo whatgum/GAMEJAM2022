@@ -7,7 +7,8 @@ Good Cop Bad Cop
 	SWITCHING BETWEEN THEM
 	MINIGAMES
 		SWITCH BETWEEN GOOD COP OR BAD COP FOR EACH MINIGAME
-	
+
+TIMER : to make the player able to fail
 
 PERSON
 	ATTRIBUTE
@@ -16,3 +17,17 @@ PERSON
 
 SCALES OF JUSICE
 	WHAT HAPPENS : player weighs each piece of evidence against the intervewee
+
+
+ABUSE
+	What happens : slap around the interviewer
+	Can fail this
+
+COSERSION
+	what happens : give alcohol to the interviewer
+	Can Fail this
+
+QUESTIONING
+	What happens : ask questions, present evidence
+		At times press them into answers utilizing the abuse or cosersion minigame
+
