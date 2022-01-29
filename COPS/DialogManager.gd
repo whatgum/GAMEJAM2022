@@ -43,6 +43,7 @@ func startNext(newKey : String) -> void:
 	self.key = newKey
 	print(key)
 	if(detecDic.has(key)):
+		print("found key")
 		setUpPopup(varients.DETECTIVE, detecDic[key])
 	elif(interDic.has(key)):
 		setUpPopup(varients.INTERVEIWEE, interDic[key])
