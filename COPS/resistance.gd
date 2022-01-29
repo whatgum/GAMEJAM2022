@@ -6,13 +6,14 @@ var reducePerWord = 1
 
 signal gameOver(won)
 
+var game_over = false
 func _process(delta):
-	if(self.value  <= 0.0):
+	if(self.value  <= 0.0 && game_over == false):
 		emit_signal("gameOver", true)
-		
-	if(self.value < self.max_value):
+		game_over = true
+	if(self.value < self.max_value && game_over == false):
 		self.value += healsBy * delta
-	
+
 
 
 func _on_places_to_go_reduce_resistance(prompt):
