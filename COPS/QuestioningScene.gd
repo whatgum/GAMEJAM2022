@@ -18,14 +18,21 @@ func _on_button_pressed():
 		print("Ask about : " + currentEvidence)
 	Input.set_custom_mouse_cursor(null)
 
-
+# Purpose : This dictionary uses questions asked as keys
+#			as values it holds arrays consisting of 2 dictionaries
+#			These dictionaries are the detective and Interviewee dialogue respectively
+#			The keys are dialgoues already said and the values are their responses to them
 var ConversationDictionary := {
 	"THE QUICK BROWN FOX JUMPS OVER THE SMALL DOG?" : [{"THE QUICK BROWN FOX JUMPS OVER THE SMALL DOG?" : "Whats all this about a fox??"},{"Whats all this about a fox??" : "yeah it was a fox, I swear"}]}
 
-
+# Purpose : This dictionary uses questions asked as keys
+#			as values it holds arrays consisting of arrays
+#			These inner arrays stores questions to be asked and whether said question is pressable
+# 			These inner arrays are used to create new question scenes for the player to ask
 var questionDictioary := {
 	"THE QUICK BROWN FOX JUMPS OVER THE SMALL DOG?" : [["question?", false], ["whats a question", true]]
 }
+
 
 
 func _on_question_container_start_dialogue(key : String, pressable : bool):
