@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dfuo2s12dh10a"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dfuo2s12dh10a"]
 
 [ext_resource type="Font" uid="uid://dck0tayhkktp7" path="res://top-secret-stamp/Font.tres" id="1_58qa3"]
 
@@ -34,6 +34,18 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gakr3"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [resource]
 default_font = ExtResource( "1_58qa3" )
 Button/colors/font_color = Color(0.545098, 0.196078, 0.196078, 1)
@@ -43,6 +55,7 @@ Button/styles/normal = SubResource( "StyleBoxFlat_fr63h" )
 Button/styles/pressed = SubResource( "StyleBoxFlat_kwhpa" )
 Panel/styles/panel = SubResource( "StyleBoxFlat_lkjlk" )
 Panel/styles/panel_fg = SubResource( "StyleBoxFlat_j1vaf" )
+PopupPanel/styles/panel = SubResource( "StyleBoxFlat_gakr3" )
 RichTextLabel/font_sizes/mono_font_size = 16
 RichTextLabel/font_sizes/normal_font_size = 14
 RichTextLabel/fonts/normal_font = ExtResource( "1_58qa3" )

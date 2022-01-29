@@ -1,7 +1,12 @@
-ScrollContainer
 Panel
-Button
+TextureRect
 RichTextLabel
+Sprite2D
+ScrollContainer
+GridContainer
+PopupPanel
+Popup
+Button
 VBoxContainer
 Control
 Container

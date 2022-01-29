@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpr8fsxvr4c63"]
+[gd_scene load_steps=7 format=3 uid="uid://dpr8fsxvr4c63"]
 
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_ieqv2"]
 [ext_resource type="PackedScene" uid="uid://dj3c4vxp0l518" path="res://questionScene.tscn" id="1_qo5sj"]
 [ext_resource type="Script" path="res://CreateQuestion.gd" id="2_x4aks"]
+[ext_resource type="Script" path="res://PopupPanel.gd" id="4_hfcs3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsj4o"]
 size = Vector2(371, 462)
@@ -119,3 +120,20 @@ text = "EVIDENCE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+script = ExtResource( "4_hfcs3" )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="PopupPanel/ScrollContainer"]
+columns = 2
+
+[node name="Control" parent="PopupPanel/ScrollContainer/GridContainer" instance=ExtResource( "1_qo5sj" )]
+
+[connection signal="pressed" from="evidenceButton" to="PopupPanel" method="_on_evidence_button_pressed"]
