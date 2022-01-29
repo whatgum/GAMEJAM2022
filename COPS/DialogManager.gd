@@ -27,7 +27,6 @@ func setUpPopup(varient : int, dialogue : String) -> void:
 	
 	dialogue = "[center]" + dialogue
 	newPop.text = dialogue
-
 	newPop.connect("finishedDialgue", Callable(self, "startNext"))
 	match(varient):
 		varients.DETECTIVE:
@@ -35,6 +34,7 @@ func setUpPopup(varient : int, dialogue : String) -> void:
 		varients.INTERVEIWEE:
 			get_child(0).add_child(newPop)
 	newPop.rect_size = rectSize
+
 
 func startNext(newKey : String) -> void:
 	self.key = newKey
