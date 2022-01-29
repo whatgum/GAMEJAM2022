@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy2a78q5pwjl8"]
+[gd_scene load_steps=7 format=3 uid="uid://cy2a78q5pwjl8"]
 
 [ext_resource type="Script" path="res://scales_of_justice.gd" id="1_4c8xd"]
 [ext_resource type="PackedScene" uid="uid://dyc0bauioxxtw" path="res://evidenceBlock.tscn" id="2_fagcq"]
+[ext_resource type="Script" path="res://replace.gd" id="3_0hvxw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cs7g"]
 bg_color = Color(0.513726, 0.6, 0.376471, 1)
@@ -13,6 +14,9 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsk5e"]
 size = Vector2(20.5714, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i32o6"]
+size = Vector2(1875.5, 108.5)
 
 [node name="ScalesOfJustice" type="Control"]
 anchor_right = 1.0
@@ -32,13 +36,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Node2D" parent="." instance=ExtResource( "2_fagcq" )]
-position = Vector2(819, 309)
-
 [node name="containerOfEvidence" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Node2D" parent="containerOfEvidence" instance=ExtResource( "2_fagcq" )]
+position = Vector2(767, 316)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(865, 561)
@@ -50,3 +54,15 @@ shape = SubResource( "RectangleShape2D_wsk5e" )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="point" type="Node2D" parent="."]
+position = Vector2(780, 81)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( "3_0hvxw" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(526, 813)
+shape = SubResource( "RectangleShape2D_i32o6" )
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_area_2d_body_entered"]
