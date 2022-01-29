@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dj3c4vxp0l518" path="res://questionScene.tscn" id="1_qo5sj"]
 [ext_resource type="Script" path="res://CreateQuestion.gd" id="2_x4aks"]
 [ext_resource type="Script" path="res://PopupPanel.gd" id="4_hfcs3"]
-[ext_resource type="PackedScene" uid="uid://bawf3pu6aar32" path="res://evidenceScene.tscn" id="5_pv68c"]
+[ext_resource type="Script" path="res://evidenceContainer.gd" id="6_md2po"]
 [ext_resource type="PackedScene" uid="uid://n4r5ss1cea4o" path="res://DialogManager.tscn" id="7_qojd4"]
 [ext_resource type="Script" path="res://pressPopup.gd" id="8_wukcm"]
 
@@ -143,16 +143,14 @@ script = ExtResource( "4_hfcs3" )
 [node name="ScrollContainer" type="ScrollContainer" parent="PopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 404.0
+offset_right = 96.0
 offset_bottom = 96.0
 horizontal_scroll_mode = 0
 
-[node name="vBoxContainer" type="VBoxContainer" parent="PopupPanel/ScrollContainer"]
-offset_right = 400.0
-offset_bottom = 114.0
+[node name="evidenceContainer" type="VBoxContainer" parent="PopupPanel/ScrollContainer"]
+offset_right = 92.0
 size_flags_horizontal = 3
-
-[node name="Control" parent="PopupPanel/ScrollContainer/vBoxContainer" instance=ExtResource( "5_pv68c" )]
+script = ExtResource( "6_md2po" )
 
 [node name="dialogManager" parent="." instance=ExtResource( "7_qojd4" )]
 mouse_filter = 2
@@ -195,6 +193,7 @@ anchor_bottom = 0.8
 theme = ExtResource( "1_ieqv2" )
 text = "COHERSE HIM"
 
+[connection signal="addEvidence" from="." to="PopupPanel/ScrollContainer/evidenceContainer" method="passEvidence"]
 [connection signal="addQuestion" from="." to="quesionsPanel/ScrollContainer/questionContainer" method="passQuestion"]
 [connection signal="pressAtEnd" from="." to="dialogManager" method="_on_questioning_press_at_end"]
 [connection signal="startConversation" from="." to="dialogManager" method="initDialog"]
