@@ -1,8 +1,191 @@
-[gd_scene format=3 uid="uid://laecrd5skqv5"]
+[gd_scene load_steps=10 format=3 uid="uid://laecrd5skqv5"]
+
+[ext_resource type="Script" path="res://abuse.gd" id="1_3skyp"]
+[ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_owvjf"]
+[ext_resource type="Script" path="res://Countdown.gd" id="2_b2fw3"]
+[ext_resource type="Script" path="res://resistance.gd" id="2_pp6v0"]
+[ext_resource type="Script" path="res://placesToGo.gd" id="4_n3rw7"]
+[ext_resource type="Script" path="res://AreaEntered.gd" id="6_brv0n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es8xd"]
+bg_color = Color(0.6, 0.101961, 0.0627451, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 127
+corner_radius_top_right = 127
+corner_radius_bottom_right = 127
+corner_radius_bottom_left = 127
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wr8ca"]
+bg_color = Color(0.819608, 0.796078, 0.788235, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 127
+corner_radius_top_right = 127
+corner_radius_bottom_right = 127
+corner_radius_bottom_left = 127
+shadow_size = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bui72"]
 
 [node name="ABUSE COMES CHEAP" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( "1_3skyp" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_left = 0.714
+anchor_top = 0.02
+anchor_right = 0.988
+anchor_bottom = 0.144
+theme = ExtResource( "1_owvjf" )
+theme_override_styles/fg = SubResource( "StyleBoxFlat_es8xd" )
+theme_override_styles/bg = SubResource( "StyleBoxFlat_wr8ca" )
+value = 100.0
+percent_visible = false
+script = ExtResource( "2_pp6v0" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ProgressBar"]
+anchor_left = 0.1
+anchor_top = 0.206
+anchor_right = 0.9
+anchor_bottom = 0.791
+theme = ExtResource( "1_owvjf" )
+theme_override_font_sizes/normal_font_size = 36
+text = "RESISTANCE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.375
+anchor_top = 0.025
+anchor_right = 0.58
+anchor_bottom = 0.066
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource( "1_owvjf" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.05
+anchor_top = 0.216
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( "1_owvjf" )
+theme_override_font_sizes/normal_font_size = 29
+text = "TIME LEFT : 1:00"
+bbcode_enabled = true
+script = ExtResource( "2_b2fw3" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="placesToGo" type="Node2D" parent="."]
+script = ExtResource( "4_n3rw7" )
+
+[node name="left" type="Node2D" parent="placesToGo"]
+position = Vector2(-48, 282)
+
+[node name="Area2D" type="Area2D" parent="placesToGo/left"]
+script = ExtResource( "6_brv0n" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placesToGo/left/Area2D"]
+shape = SubResource( "RectangleShape2D_bui72" )
+
+[node name="uperLeft" type="Node2D" parent="placesToGo"]
+position = Vector2(-49, -48)
+
+[node name="Area2D" type="Area2D" parent="placesToGo/uperLeft"]
+script = ExtResource( "6_brv0n" )
+areaNum = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placesToGo/uperLeft/Area2D"]
+shape = SubResource( "RectangleShape2D_bui72" )
+
+[node name="bottomLeft" type="Node2D" parent="placesToGo"]
+position = Vector2(-38, 651)
+
+[node name="Area2D" type="Area2D" parent="placesToGo/bottomLeft"]
+script = ExtResource( "6_brv0n" )
+areaNum = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placesToGo/bottomLeft/Area2D"]
+shape = SubResource( "RectangleShape2D_bui72" )
+
+[node name="bottom" type="Node2D" parent="placesToGo"]
+position = Vector2(542, 660)
+
+[node name="Area2D" type="Area2D" parent="placesToGo/bottom"]
+script = ExtResource( "6_brv0n" )
+areaNum = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placesToGo/bottom/Area2D"]
+shape = SubResource( "RectangleShape2D_bui72" )
+
+[node name="bottomRight" type="Node2D" parent="placesToGo"]
+position = Vector2(1073, 658)
+
+[node name="Area2D" type="Area2D" parent="placesToGo/bottomRight"]
+script = ExtResource( "6_brv0n" )
+areaNum = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placesToGo/bottomRight/Area2D"]
+shape = SubResource( "RectangleShape2D_bui72" )
+
+[node name="Right" type="Node2D" parent="placesToGo"]
+position = Vector2(1067, 273)
+
+[node name="Area2D" type="Area2D" parent="placesToGo/Right"]
+script = ExtResource( "6_brv0n" )
+areaNum = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placesToGo/Right/Area2D"]
+shape = SubResource( "RectangleShape2D_bui72" )
+
+[node name="upperRight" type="Node2D" parent="placesToGo"]
+position = Vector2(1069, -54)
+
+[node name="Area2D" type="Area2D" parent="placesToGo/upperRight"]
+script = ExtResource( "6_brv0n" )
+areaNum = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placesToGo/upperRight/Area2D"]
+shape = SubResource( "RectangleShape2D_bui72" )
+
+[node name="Upper" type="Node2D" parent="placesToGo"]
+position = Vector2(551, -61)
+
+[node name="Area2D" type="Area2D" parent="placesToGo/Upper"]
+script = ExtResource( "6_brv0n" )
+areaNum = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placesToGo/Upper/Area2D"]
+shape = SubResource( "RectangleShape2D_bui72" )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="area_entered" from="placesToGo/left/Area2D" to="placesToGo/left/Area2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="placesToGo/uperLeft/Area2D" to="placesToGo/uperLeft/Area2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="placesToGo/bottomLeft/Area2D" to="placesToGo/bottomLeft/Area2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="placesToGo/bottom/Area2D" to="placesToGo/bottom/Area2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="placesToGo/bottomRight/Area2D" to="placesToGo/bottomRight/Area2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="placesToGo/Right/Area2D" to="placesToGo/Right/Area2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="placesToGo/upperRight/Area2D" to="placesToGo/upperRight/Area2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="placesToGo/Upper/Area2D" to="placesToGo/Upper/Area2D" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="placesToGo" method="_on_timer_timeout"]
