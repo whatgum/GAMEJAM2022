@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bawf3pu6aar32"]
+[gd_scene load_steps=5 format=3 uid="uid://bawf3pu6aar32"]
 
 [ext_resource type="Texture2D" uid="uid://bmusuyq6x6k1x" path="res://icon.png" id="1_g8bff"]
+[ext_resource type="Script" path="res://evidenceScene.gd" id="1_m77xj"]
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="2_b1nix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gux7l"]
@@ -18,7 +19,10 @@ corner_radius_bottom_left = 5
 [node name="Control" type="Panel"]
 anchor_right = 0.124
 anchor_bottom = 0.19
+rect_min_size = Vector2(126.976, 114)
+mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource( "StyleBoxFlat_gux7l" )
+script = ExtResource( "1_m77xj" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,3 +49,13 @@ bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

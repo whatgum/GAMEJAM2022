@@ -1,5 +1,8 @@
 res://PopupPanel.gd
+res://QuestioningScene.gd
 res://QuestioningScene.tscn
+res://evidenceScene.gd
+res://evidenceScene.tscn
 res://gameTheme.tres
 res://main.tscn
 res://questionScene.tscn
