@@ -11,6 +11,7 @@ var currentIndex : int
 
 func passQuestion(string : String, pressable : bool) -> void:
 	var newQuestion = question.instantiate();
+	print("NQ", string)
 	newQuestion.init(string, pressable)
 	self.add_child(newQuestion)
 

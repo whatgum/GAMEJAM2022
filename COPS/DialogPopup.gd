@@ -4,7 +4,7 @@ var runningTime = 0
 
 signal finishedDialgue(text)
 # Each character adds this many seconds before fading
-var fadeDelayPerCharacter = .01 
+var fadeDelayPerCharacter = .035 
 
 # How quickly the dialog fades
 var fadeSpeedMultiplier = 1.0
