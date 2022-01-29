@@ -46,4 +46,4 @@ Panel/styles/panel_fg = SubResource( "StyleBoxFlat_j1vaf" )
 RichTextLabel/font_sizes/mono_font_size = 16
 RichTextLabel/font_sizes/normal_font_size = 14
 RichTextLabel/fonts/normal_font = ExtResource( "1_58qa3" )
-VBoxContainer/constants/separation = 6
+VBoxContainer/constants/separation = 10

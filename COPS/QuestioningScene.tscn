@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpr8fsxvr4c63"]
+[gd_scene load_steps=6 format=3 uid="uid://dpr8fsxvr4c63"]
 
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_ieqv2"]
 [ext_resource type="PackedScene" uid="uid://dj3c4vxp0l518" path="res://questionScene.tscn" id="1_qo5sj"]
+[ext_resource type="Script" path="res://CreateQuestion.gd" id="2_x4aks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsj4o"]
 size = Vector2(371, 462)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyfb7"]
+bg_color = Color(0.513726, 0.6, 0.376471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [node name="Questioning" type="Control"]
 anchor_right = 1.0
@@ -22,27 +31,82 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SuspectPlaceholder"]
 shape = SubResource( "RectangleShape2D_fsj4o" )
 
-[node name="questionContainer" type="VBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
 anchor_left = 0.699
 anchor_top = 0.738
 anchor_right = 0.99
 anchor_bottom = 0.99
-grow_horizontal = 0
-grow_vertical = 2
-rect_min_size = Vector2(100, 100)
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( "1_ieqv2" )
+theme_override_styles/panel = SubResource( "StyleBoxFlat_lyfb7" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" parent="questionContainer" instance=ExtResource( "1_qo5sj" )]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+anchor_left = 0.054
+anchor_top = 0.1
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( "1_ieqv2" )
+horizontal_scroll_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="questionContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+offset_right = 270.0
+offset_bottom = 310.0
+grow_horizontal = 0
+grow_vertical = 2
+rect_min_size = Vector2(270, 50)
+theme = ExtResource( "1_ieqv2" )
+alignment = 1
+script = ExtResource( "2_x4aks" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" parent="Panel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 297.0
+offset_right = 270.0
 offset_bottom = 70.0
 rect_min_size = Vector2(100, 70)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control2" parent="Panel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 80.0
+offset_right = 270.0
+offset_bottom = 150.0
+rect_min_size = Vector2(100, 70)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control3" parent="Panel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 160.0
+offset_right = 270.0
+offset_bottom = 230.0
+rect_min_size = Vector2(100, 70)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control4" parent="Panel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 240.0
+offset_right = 270.0
+offset_bottom = 310.0
+rect_min_size = Vector2(100, 70)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="evidenceButton" type="Button" parent="."]
 anchor_left = 0.857

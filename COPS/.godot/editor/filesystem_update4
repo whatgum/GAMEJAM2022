@@ -1,3 +1,4 @@
+res://CreateQuestion.gd
 res://DialogPopup.tscn
 res://QuestioningScene.tscn
 res://addText.gd
