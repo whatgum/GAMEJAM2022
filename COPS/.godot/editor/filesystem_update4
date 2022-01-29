@@ -1,4 +1,8 @@
 res://CreateQuestion.gd
+res://DialogManager.gd
+res://DialogManager.tscn
+res://DialogPopup.gd
+res://DialogPopup.tscn
 res://PopupPanel.gd
 res://QuestioningScene.gd
 res://QuestioningScene.tscn

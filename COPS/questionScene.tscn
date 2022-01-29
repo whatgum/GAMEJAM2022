@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_1nhie"]
 [ext_resource type="Script" path="res://addText.gd" id="1_fdpsb"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" groups=["questions"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( "1_fdpsb" )

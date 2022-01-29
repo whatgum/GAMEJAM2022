@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bobs0t73b4gvx"]
+[gd_scene load_steps=3 format=3 uid="uid://bobs0t73b4gvx"]
 
 [ext_resource type="Script" path="res://DialogPopup.gd" id="1_q88l6"]
+[ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_wr5y8"]
 
 [node name="DialogPopup" type="RichTextLabel"]
 offset_right = 301.0
 offset_bottom = 98.0
+theme = ExtResource( "1_wr5y8" )
+theme_override_font_sizes/normal_font_size = 30
 text = "Sample Sample Sample Sample Sample"
+bbcode_enabled = true
 scroll_active = false
 script = ExtResource( "1_q88l6" )
 __meta__ = {

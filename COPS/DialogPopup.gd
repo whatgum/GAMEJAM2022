@@ -2,7 +2,7 @@ extends RichTextLabel
 
 var runningTime = 0
 
-
+signal finishedDialgue(text)
 # Each character adds this many seconds before fading
 var fadeDelayPerCharacter = 0.1 
 
@@ -23,3 +23,4 @@ func _process(delta):
 	if modulate.a <= 0:
 		queue_free()
 		print(text.length())
+		emit_signal("finishedDialgue", text.substr(8))

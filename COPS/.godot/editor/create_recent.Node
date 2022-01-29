@@ -1,3 +1,4 @@
+Control
 TextureButton
 TextureRect
 VBoxContainer
@@ -9,7 +10,6 @@ ScrollContainer
 GridContainer
 PopupPanel
 Popup
-Control
 Container
 NinePatchRect
 CenterContainer
