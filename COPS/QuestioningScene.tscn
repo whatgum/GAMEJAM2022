@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpr8fsxvr4c63"]
+
+[ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_ieqv2"]
+[ext_resource type="PackedScene" uid="uid://dj3c4vxp0l518" path="res://questionScene.tscn" id="1_qo5sj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsj4o"]
+size = Vector2(371, 462)
+
+[node name="Questioning" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SuspectPlaceholder" type="Area2D" parent="."]
+position = Vector2(521, 368)
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SuspectPlaceholder"]
+shape = SubResource( "RectangleShape2D_fsj4o" )
+
+[node name="questionContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.699
+anchor_top = 0.738
+anchor_right = 0.99
+anchor_bottom = 0.99
+grow_horizontal = 0
+grow_vertical = 2
+rect_min_size = Vector2(100, 100)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( "1_ieqv2" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" parent="questionContainer" instance=ExtResource( "1_qo5sj" )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 297.0
+offset_bottom = 70.0
+rect_min_size = Vector2(100, 70)
+
+[node name="evidenceButton" type="Button" parent="."]
+anchor_left = 0.857
+anchor_top = 0.01
+anchor_right = 0.994
+anchor_bottom = 0.046
+offset_left = -6.10352e-05
+theme = ExtResource( "1_ieqv2" )
+text = "EVIDENCE"
+__meta__ = {
+"_edit_use_anchors_": false
+}

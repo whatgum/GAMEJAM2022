@@ -12,7 +12,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="@@46292" type="VScrollBar" parent="."]
+[node name="46292" type="VScrollBar" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0

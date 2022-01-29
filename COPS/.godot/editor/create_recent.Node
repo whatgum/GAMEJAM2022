@@ -1,5 +1,8 @@
-Control
+Button
+Panel
 RichTextLabel
+VBoxContainer
+Control
 Container
 NinePatchRect
 CenterContainer

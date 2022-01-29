@@ -1,3 +1,12 @@
 102b54792f6b2ef812636a2bdaeb9d34
-::res://::1643415212
-icon.png::StreamTexture2D::3271104270896318331::1643415132::1643415213::1::::<><>::
+::res://::1643431271
+CoersionMinigame.gd::GDScript::-1::1643430648::0::1::::<>Node2D<>::
+DialogPopup.gd::GDScript::-1::1643430648::0::1::::<>RichTextLabel<>::
+DialogPopup.tscn::PackedScene::3372267471749102705::1643430784::0::1::::<><>::res://DialogPopup.gd
+icon.png::StreamTexture2D::3271104270896318331::1643430648::1643430648::1::::<><>::
+main.tscn::PackedScene::8428430139848018706::1643430774::0::1::::<><>::res://CoersionMinigame.gd
+QuestioningScene.tscn::PackedScene::8249202699128431898::1643431017::0::1::::<><>::
+gameTheme.tres::Theme::7552393065501112194::1643431185::0::1::::<><>::
+questionScene.tscn::PackedScene::7848938582180305557::1643431205::0::1::::<><>::uid://dfuo2s12dh10a
+::res://top-secret-stamp/::1643431270
+Top Secret Stamp.ttf::FontData::2148038776347413390::1410269636::1643431277::1::::<><>::

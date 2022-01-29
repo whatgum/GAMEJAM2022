@@ -1,0 +1,6 @@
+[gd_resource type="Font" load_steps=2 format=3 uid="uid://dck0tayhkktp7"]
+
+[ext_resource type="FontData" uid="uid://5ur5c3y4qlek" path="res://top-secret-stamp/Top Secret Stamp.ttf" id="1_u7rkh"]
+
+[resource]
+data/0 = ExtResource( "1_u7rkh" )
