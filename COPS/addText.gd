@@ -7,7 +7,7 @@ func init(string :String, _pressable : bool) -> void:
 	self.pressable = _pressable
 
 func _on_button_pressed():
-	get_parent().sendQuestion(get_child(1).text, true, self.get_index())
+	get_parent().sendQuestion(get_child(1).text, pressable, self.get_index())
 
 func disableButtons(_set : bool):
 	get_child(0).disabled = _set

@@ -17,7 +17,9 @@ var flyingTypeAttack = load("res://FlyingTypeAttack.tscn")
 
 var activeEnemy = null
 var currLetterIndex = 0
+signal reduceResistance(prompt)
 
+var gameOver = false
 
 func _on_timer_timeout():
 	var rand = RandomNumberGenerator.new()
@@ -59,12 +61,14 @@ func processCurrentEnemy(key):
 		currLetterIndex = -1
 		activeEnemy.queue_free()
 		activeEnemy = null
-		
+		emit_signal("reduceResistance", prompt)
 	else:
 		print("incorrectly typed %s instead of %s" % [key, next_character])
 
 
 func _unhandled_key_input(event):
+	if(gameOver):
+		return
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
 		var typed_event = event as InputEventKey
 		var key = OS.get_keycode_string(event.keycode)
