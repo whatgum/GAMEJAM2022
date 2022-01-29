@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://b5bisn7ajl4ep"]
+[gd_scene load_steps=4 format=3 uid="uid://b5bisn7ajl4ep"]
+
+[ext_resource type="Script" path="res://FlyingTypeAttack.gd" id="1_pt5o4"]
+[ext_resource type="Texture2D" uid="uid://bmusuyq6x6k1x" path="res://icon.png" id="2_wftg3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp1as"]
+size = Vector2(64, 63)
 
 [node name="movementNode" type="Node2D"]
+script = ExtResource( "1_pt5o4" )
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+texture = ExtResource( "2_wftg3" )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -0.5)
+shape = SubResource( "RectangleShape2D_xp1as" )
