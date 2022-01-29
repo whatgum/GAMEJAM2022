@@ -3,9 +3,12 @@
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_1nhie"]
 [ext_resource type="Script" path="res://addText.gd" id="1_fdpsb"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" groups=["questions"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2(100, 70)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( "1_fdpsb" )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -33,3 +36,5 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
