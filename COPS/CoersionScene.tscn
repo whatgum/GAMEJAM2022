@@ -154,5 +154,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ResultZone" type="Control" parent="."]
+offset_left = -242.0
+offset_top = 161.0
+offset_right = 258.0
+offset_bottom = 412.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ResultLabel" type="RichTextLabel" parent="ResultZone"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -377.0
+offset_right = 377.0
+offset_bottom = 123.0
+rect_rotation = 0.143592
+theme = ExtResource( "2_bsgad" )
+theme_override_font_sizes/normal_font_size = 66
+text = "[center][b]NO DICE[/b][/center]"
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="ResultZone"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -37.0
+offset_right = 146.0
+offset_bottom = 6.0
+theme = ExtResource( "2_bsgad" )
+theme_override_colors/font_color = Color(0.0862745, 0.0509804, 0.0509804, 1)
+theme_override_font_sizes/font_size = 27
+text = "Return to Questioning"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="ButtonZone/SweetTalkButton" to="." method="_on_sweet_talk_button_pressed"]
 [connection signal="pressed" from="ButtonZone/AskNicelyButton" to="." method="_on_ask_nicely_button_pressed"]
+[connection signal="pressed" from="ResultZone/ExitButton" to="." method="closeMinigame"]

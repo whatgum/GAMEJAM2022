@@ -1,8 +1,8 @@
 Button
+Control
 RichTextLabel
 Panel
 Popup
-Control
 TextureButton
 TextureRect
 VBoxContainer

@@ -31,6 +31,9 @@ var timeElapsed : float = 0
 
 var susBar : ProgressBar
 var truthChanceLabel : RichTextLabel
+var resultLabel : RichTextLabel
+var exitButton : Button
+
 @export var chanceRamp : Gradient 
 # decimal between 0 and 100. Probability of success for Asking Nicely
 var realChance : float = 0
@@ -39,28 +42,33 @@ var chanceIncreaseMax : float = 25
 # Do the classic X-COM "Show the player a lower chance than it actually is
 # so they don't feel like the game is bullshit" tactic. Plus helps with
 # showing the chance as integer.
-var displayedChance : int = 0
+var displayedChance : float = 0
+var dispayedChanceChangeSpeed : int = 50
 var currentChanceColor : Color
 
-var timeTransitioning = 0
 
-# Called when the node enters the scene tree for the first time.
+
+var resultFadeInDuration : float = 0.8 # time it takes for result to fade in
+var isDisplayingResult := false
+var timeDisplayingResult : float = 0
+
 func _ready():
 	truthChanceLabel = get_node("SuspicionZone/TruthChance")
 	susBar = get_node("SuspicionZone/ProgressBar")
-	pass # Replace with function body.
+	resultLabel = get_node("ResultZone/ResultLabel")
+	exitButton = get_node("ResultZone/ExitButton")
 
-
-# this guy is gonna hide all the shit
-func setRunning(shouldRun):
-	running = shouldRun
-
+func startGame():
+	suspicion = 0
+	realChance = 0
+	susDecayBase = 2.5
+	susDecayMult = 1.0
+	displayedChance = 0
 
 func _process(delta):
-	if running:
-		updateGUI(delta)
-		decaySuspicion(delta)
-	pass
+	updateGUI(delta)
+	decaySuspicion(delta)
+	
 
 func sweetTalk():
 	# increase sus
@@ -94,21 +102,55 @@ func askNicely():
 	
 
 func decaySuspicion(delta):
-	suspicion -= susDecayBase*susDecayMult*delta
+	if running:
+		suspicion -= susDecayBase*susDecayMult*delta
+		if suspicion < 0:
+			suspicion = 0
+		elif suspicion > 100:
+			endMinigame(false)
 
 
 
 func updateGUI(delta):
 	susBar.value = suspicion
-	truthChanceLabel.text = str(int(realChance)) + "%"
+	if displayedChance < int(realChance):
+		displayedChance += delta*dispayedChanceChangeSpeed
+	elif displayedChance > int(realChance):
+		displayedChance = realChance
+	
+	
+	# result fadein code
+	if isDisplayingResult:
+		timeDisplayingResult+=delta
+		resultLabel.modulate += Color(0,0,0,lerp(0,1,timeDisplayingResult/resultFadeInDuration))
+		exitButton.modulate += Color(0,0,0,lerp(0,1,timeDisplayingResult/resultFadeInDuration))
+	else:
+		resultLabel.modulate = Color(0,0,0,0)
+		exitButton.modulate = Color(1,1,1,0) # we don't have to worry about diff. colors for this guy
+	
+	truthChanceLabel.text = str(int(displayedChance)) + "%"
 	truthChanceLabel.modulate = chanceRamp.interpolate(realChance/100)
 
 
+func showResult(won):
+	isDisplayingResult = true
+	exitButton.visible = true
+	if won:
+		resultLabel.text = "[center][b]GOT 'EM![/b][/center]"
+		resultLabel.modulate = Color.GREEN * Color(1, 1, 1, 0)
+		
+	else:
+		resultLabel.text = "[center][b]THEY CAUGHT ON![/b][/center]"
+		resultLabel.modulate = Color.RED * Color(1, 1, 1, 0)
+		
+
 func endMinigame(isSuccessful):
-	setRunning(false)
-	# TODO, keeping this here so it can be hooked up
+	running = false
+	showResult(isSuccessful)
 	pass
 
+func closeMinigame():
+	visible = false
 
 func _on_sweet_talk_button_pressed():
 	sweetTalk()
