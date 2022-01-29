@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpr8fsxvr4c63"]
+[gd_scene load_steps=10 format=3 uid="uid://dpr8fsxvr4c63"]
 
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_ieqv2"]
+[ext_resource type="Script" path="res://QuestioningScene.gd" id="1_krfu3"]
 [ext_resource type="PackedScene" uid="uid://dj3c4vxp0l518" path="res://questionScene.tscn" id="1_qo5sj"]
 [ext_resource type="Script" path="res://CreateQuestion.gd" id="2_x4aks"]
+[ext_resource type="Script" path="res://PopupPanel.gd" id="4_hfcs3"]
+[ext_resource type="PackedScene" uid="uid://bawf3pu6aar32" path="res://evidenceScene.tscn" id="5_pv68c"]
+[ext_resource type="PackedScene" uid="uid://n4r5ss1cea4o" path="res://DialogManager.tscn" id="7_qojd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsj4o"]
 size = Vector2(371, 462)
@@ -18,6 +22,16 @@ border_color = Color(0, 0, 0, 1)
 [node name="Questioning" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( "1_krfu3" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="TextureButton" parent="."]
+anchor_left = 0.326
+anchor_top = 0.229
+anchor_right = 0.69
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -31,7 +45,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SuspectPlaceholder"]
 shape = SubResource( "RectangleShape2D_fsj4o" )
 
-[node name="Panel" type="Panel" parent="."]
+[node name="quesionsPanel" type="Panel" parent="."]
 anchor_left = 0.699
 anchor_top = 0.738
 anchor_right = 0.99
@@ -41,7 +55,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="quesionsPanel"]
 anchor_left = 0.054
 anchor_top = 0.1
 anchor_right = 0.98
@@ -56,7 +70,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="questionContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+[node name="questionContainer" type="VBoxContainer" parent="quesionsPanel/ScrollContainer"]
 offset_right = 270.0
 offset_bottom = 310.0
 grow_horizontal = 0
@@ -69,7 +83,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" parent="Panel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
+[node name="Control" parent="quesionsPanel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 270.0
@@ -78,7 +92,7 @@ rect_min_size = Vector2(100, 70)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control2" parent="Panel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
+[node name="Control2" parent="quesionsPanel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_top = 80.0
@@ -88,7 +102,7 @@ rect_min_size = Vector2(100, 70)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control3" parent="Panel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
+[node name="Control3" parent="quesionsPanel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_top = 160.0
@@ -98,7 +112,7 @@ rect_min_size = Vector2(100, 70)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control4" parent="Panel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
+[node name="Control4" parent="quesionsPanel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_top = 240.0
@@ -119,3 +133,30 @@ text = "EVIDENCE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+wrap_controls = false
+borderless = false
+script = ExtResource( "4_hfcs3" )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 404.0
+offset_bottom = 96.0
+horizontal_scroll_mode = 0
+
+[node name="vBoxContainer" type="VBoxContainer" parent="PopupPanel/ScrollContainer"]
+offset_right = 400.0
+offset_bottom = 114.0
+size_flags_horizontal = 3
+
+[node name="Control" parent="PopupPanel/ScrollContainer/vBoxContainer" instance=ExtResource( "5_pv68c" )]
+
+[node name="dialogManager" parent="." instance=ExtResource( "7_qojd4" )]
+mouse_filter = 2
+
+[connection signal="startConversation" from="." to="dialogManager" method="initDialog"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="startDialogue" from="quesionsPanel/ScrollContainer/questionContainer" to="." method="_on_question_container_start_dialogue"]
+[connection signal="pressed" from="evidenceButton" to="PopupPanel" method="_on_evidence_button_pressed"]

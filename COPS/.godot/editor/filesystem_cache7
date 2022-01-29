@@ -1,12 +1,16 @@
 102b54792f6b2ef812636a2bdaeb9d34
-::res://::1643431271
+::res://::1643466945
+addText.gd::GDScript::-1::1643466852::0::1::::<>Control<>::
 CoersionMinigame.gd::GDScript::-1::1643430648::0::1::::<>Node2D<>::
+CreateQuestion.gd::GDScript::-1::1643466852::0::1::::<>VBoxContainer<>::
 DialogPopup.gd::GDScript::-1::1643430648::0::1::::<>RichTextLabel<>::
-DialogPopup.tscn::PackedScene::3372267471749102705::1643430784::0::1::::<><>::res://DialogPopup.gd
+DialogPopup.tscn::PackedScene::3372267471749102705::1643466852::0::1::::<><>::res://DialogPopup.gd
+gameTheme.tres::Theme::7552393065501112194::1643466852::0::1::::<><>::uid://dck0tayhkktp7
 icon.png::StreamTexture2D::3271104270896318331::1643430648::1643430648::1::::<><>::
-main.tscn::PackedScene::8428430139848018706::1643430774::0::1::::<><>::res://CoersionMinigame.gd
-QuestioningScene.tscn::PackedScene::8249202699128431898::1643431017::0::1::::<><>::
-gameTheme.tres::Theme::7552393065501112194::1643431185::0::1::::<><>::
-questionScene.tscn::PackedScene::7848938582180305557::1643431205::0::1::::<><>::uid://dfuo2s12dh10a
-::res://top-secret-stamp/::1643431270
-Top Secret Stamp.ttf::FontData::2148038776347413390::1410269636::1643431277::1::::<><>::
+main.tscn::PackedScene::8428430139848018706::1643433694::0::1::::<><>::res://CoersionMinigame.gd
+QuestioningScene.tscn::PackedScene::8249202699128431898::1643466852::0::1::::<><>::uid://dfuo2s12dh10a<>uid://dj3c4vxp0l518<>res://CreateQuestion.gd
+questionScene.tscn::PackedScene::7848938582180305557::1643466852::0::1::::<><>::uid://dfuo2s12dh10a<>res://addText.gd
+::res://top-secret-stamp/::1643466852
+Font.tres::Font::7321835408206453178::1643466852::0::1::::<><>::uid://5ur5c3y4qlek
+Top Secret Stamp.ttf::FontData::2148038776347413390::1643466852::1643466852::1::::<><>::
+TypeFont.tres::FontData::8240553063859715727::1643466852::0::1::::<><>::
