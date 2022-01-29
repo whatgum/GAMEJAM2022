@@ -27,7 +27,6 @@ func initDialog(detecitveDialogue : Dictionary, intervieweeDialogue : Dictionary
 func setUpPopup(varient : int, dialogue : String) -> void:
 	var newPop : RichTextLabel
 	newPop = dialogPop.instantiate()
-	
 	dialogue = "[center]" + dialogue
 	newPop.text = dialogue
 	newPop.connect("finishedDialgue", Callable(self, "startNext"))
