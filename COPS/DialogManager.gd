@@ -6,9 +6,12 @@ var interDic : Dictionary
 var key : String
 var dialogPop = load("res://DialogPopup.tscn")
 var rectSize = Vector2(512, 90)
-
+var pressable = false
 var detecColor = Color("cc846f")
 var interColor = Color("73b86a")
+
+signal showPopup
+signal addQuestions
 
 func initDialog(detecitveDialogue : Dictionary, intervieweeDialogue : Dictionary, _key : String) -> void:
 	print('startingDialog')
@@ -44,4 +47,13 @@ func startNext(newKey : String) -> void:
 	elif(interDic.has(key)):
 		setUpPopup(varients.INTERVEIWEE, interDic[key])
 	else:
-		get_tree().call_group("questions", "disableButtons", false)
+		if(pressable):
+			pressable = false
+			emit_signal("showPopup")
+		else:
+			get_tree().call_group("questions", "disableButtons", false)
+		emit_signal("addQuestions")
+
+
+func _on_questioning_press_at_end():
+	pressable = true

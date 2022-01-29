@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpr8fsxvr4c63"]
+[gd_scene load_steps=12 format=3 uid="uid://dpr8fsxvr4c63"]
 
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_ieqv2"]
 [ext_resource type="Script" path="res://QuestioningScene.gd" id="1_krfu3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://PopupPanel.gd" id="4_hfcs3"]
 [ext_resource type="PackedScene" uid="uid://bawf3pu6aar32" path="res://evidenceScene.tscn" id="5_pv68c"]
 [ext_resource type="PackedScene" uid="uid://n4r5ss1cea4o" path="res://DialogManager.tscn" id="7_qojd4"]
+[ext_resource type="Script" path="res://pressPopup.gd" id="8_wukcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsj4o"]
 size = Vector2(371, 462)
@@ -18,6 +19,18 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i4xp"]
+bg_color = Color(0.6, 0.180392, 0.180392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 1
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="Questioning" type="Control"]
 anchor_right = 1.0
@@ -88,9 +101,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 270.0
 offset_bottom = 70.0
-rect_min_size = Vector2(100, 70)
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="Control2" parent="quesionsPanel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
 anchor_right = 0.0
@@ -98,9 +108,6 @@ anchor_bottom = 0.0
 offset_top = 80.0
 offset_right = 270.0
 offset_bottom = 150.0
-rect_min_size = Vector2(100, 70)
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="Control3" parent="quesionsPanel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
 anchor_right = 0.0
@@ -108,9 +115,6 @@ anchor_bottom = 0.0
 offset_top = 160.0
 offset_right = 270.0
 offset_bottom = 230.0
-rect_min_size = Vector2(100, 70)
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="Control4" parent="quesionsPanel/ScrollContainer/questionContainer" instance=ExtResource( "1_qo5sj" )]
 anchor_right = 0.0
@@ -118,9 +122,6 @@ anchor_bottom = 0.0
 offset_top = 240.0
 offset_right = 270.0
 offset_bottom = 310.0
-rect_min_size = Vector2(100, 70)
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="evidenceButton" type="Button" parent="."]
 anchor_left = 0.857
@@ -156,7 +157,50 @@ size_flags_horizontal = 3
 [node name="dialogManager" parent="." instance=ExtResource( "7_qojd4" )]
 mouse_filter = 2
 
+[node name="pressPopup" type="Popup" parent="."]
+wrap_controls = false
+unresizable = false
+theme = ExtResource( "1_ieqv2" )
+script = ExtResource( "8_wukcm" )
+
+[node name="Panel" type="Panel" parent="pressPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource( "StyleBoxFlat_4i4xp" )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="pressPopup/Panel"]
+anchor_left = 0.02
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.3
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource( "1_ieqv2" )
+text = "    He seems to be hiding something, Do you want to press him?"
+bbcode_enabled = true
+
+[node name="abuse" type="Button" parent="pressPopup/Panel"]
+anchor_left = 0.2
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.8
+theme = ExtResource( "1_ieqv2" )
+text = "ABUSE HIM"
+
+[node name="coherse" type="Button" parent="pressPopup/Panel"]
+anchor_left = 0.6
+anchor_top = 0.5
+anchor_right = 0.8
+anchor_bottom = 0.8
+theme = ExtResource( "1_ieqv2" )
+text = "COHERSE HIM"
+
+[connection signal="addQuestion" from="." to="quesionsPanel/ScrollContainer/questionContainer" method="passQuestion"]
+[connection signal="pressAtEnd" from="." to="dialogManager" method="_on_questioning_press_at_end"]
 [connection signal="startConversation" from="." to="dialogManager" method="initDialog"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="startDialogue" from="quesionsPanel/ScrollContainer/questionContainer" to="." method="_on_question_container_start_dialogue"]
 [connection signal="pressed" from="evidenceButton" to="PopupPanel" method="_on_evidence_button_pressed"]
+[connection signal="addQuestions" from="dialogManager" to="." method="_on_dialog_manager_add_questions"]
+[connection signal="showPopup" from="dialogManager" to="pressPopup" method="_on_dialog_manager_show_popup"]
+[connection signal="popup_hide" from="pressPopup" to="pressPopup" method="_on_press_popup_popup_hide"]
