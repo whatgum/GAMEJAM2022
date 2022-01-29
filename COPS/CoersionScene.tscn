@@ -74,7 +74,7 @@ offset_top = -31.0
 offset_right = 227.0
 offset_bottom = 29.0
 theme = ExtResource( "2_bsgad" )
-theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 61
 text = "0%"
 bbcode_enabled = true
@@ -116,3 +116,43 @@ anchor_bottom = 1.0
 max_value = 23.0
 step = 1.0
 page = 23.0
+
+[node name="ButtonZone" type="Control" parent="."]
+offset_left = -528.0
+offset_top = 518.0
+offset_right = -140.0
+offset_bottom = 599.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SweetTalkButton" type="Button" parent="ButtonZone"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -33.5
+offset_right = 182.0
+offset_bottom = 33.5
+theme = ExtResource( "2_bsgad" )
+theme_override_font_sizes/font_size = 24
+text = "SWEET TALK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AskNicelyButton" type="Button" parent="ButtonZone"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -33.5
+offset_bottom = 33.5
+theme = ExtResource( "2_bsgad" )
+theme_override_font_sizes/font_size = 26
+text = "ASK NICELY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ButtonZone/SweetTalkButton" to="." method="_on_sweet_talk_button_pressed"]
+[connection signal="pressed" from="ButtonZone/AskNicelyButton" to="." method="_on_ask_nicely_button_pressed"]

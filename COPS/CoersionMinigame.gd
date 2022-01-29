@@ -19,9 +19,15 @@ extends Node2D
 
 
 var suspicion : float = 0 # Between 0 and 100, 100 being losing
+
+var susDecayBase : float = 2.5
 var susDecayMult : float = 1 # Number goes down the more the player sweettalks
-var susIncreaseMin : float = 10
-var susIncreaseMax : float = 25
+
+var susIncreaseMin : float = 20
+var susIncreaseMax : float = 35
+
+var running : bool = true
+var timeElapsed : float = 0
 
 var susBar : ProgressBar
 var truthChanceLabel : RichTextLabel
@@ -42,41 +48,73 @@ var timeTransitioning = 0
 func _ready():
 	truthChanceLabel = get_node("SuspicionZone/TruthChance")
 	susBar = get_node("SuspicionZone/ProgressBar")
-	sweetTalk()
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+# this guy is gonna hide all the shit
+func setRunning(shouldRun):
+	running = shouldRun
+
+
 func _process(delta):
-	updateGUI(delta)
+	if running:
+		updateGUI(delta)
+		decaySuspicion(delta)
 	pass
 
 func sweetTalk():
 	# increase sus
 	var susRoll = randf_range(susIncreaseMin, susIncreaseMax)
-	print(susRoll)
 	suspicion += susRoll
-	print(suspicion)
 	# increase chances. scale chance increase with how high the sus changed
 	var chanceModifier = (
 		susRoll - susIncreaseMin)/(
 			susIncreaseMax-susIncreaseMin)
 			
 	var chanceIncrease = chanceIncreaseMax*chanceModifier
-	print(chanceIncrease)
 	realChance += chanceIncrease
-	print(realChance)
-	# decrease sus decay speed
-	# TODO resuming this in the morning
+	if(susDecayMult > 0):
+		susDecayMult -= 0.1
+	
+	
+	
+	
 
-# little helper function where you pass in a number between 0 and 1.0, and it
-# will return a color more red as it gets closer to 0, and more green as it
-# gets closer to 1. Using this so it visually shows how decent your chances
-# are
-func getColorByPercent(percent):
-	pass
+func askNicely():
+	var roll = randf_range(0, 100)
+	if roll <= realChance:
+		# SUCCESS
+		print("SUCCESS ROLL=", roll)
+		endMinigame(true)
+	else:
+		# FAILURE
+		print("FAILURE ROLL=", roll)
+		endMinigame(false)
+	
+	
+
+func decaySuspicion(delta):
+	suspicion -= susDecayBase*susDecayMult*delta
+
+
 
 func updateGUI(delta):
 	susBar.value = suspicion
 	truthChanceLabel.text = str(int(realChance)) + "%"
 	truthChanceLabel.modulate = chanceRamp.interpolate(realChance/100)
 
+
+func endMinigame(isSuccessful):
+	setRunning(false)
+	# TODO, keeping this here so it can be hooked up
+	pass
+
+
+func _on_sweet_talk_button_pressed():
+	sweetTalk()
+	pass # Replace with function body.
+
+
+func _on_ask_nicely_button_pressed():
+	askNicely()
+	pass # Replace with function body.
