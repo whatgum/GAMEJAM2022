@@ -7,9 +7,11 @@ res://PopupPanel.gd
 res://QuestioningScene.gd
 res://QuestioningScene.tscn
 res://addText.gd
+res://evidenceContainer.gd
 res://evidenceScene.gd
 res://evidenceScene.tscn
 res://gameTheme.tres
 res://main.tscn
+res://pressPopup.gd
 res://questionScene.tscn
 res://top-secret-stamp/Font.tres
