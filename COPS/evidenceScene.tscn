@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bawf3pu6aar32"]
+[gd_scene load_steps=6 format=3 uid="uid://bawf3pu6aar32"]
 
 [ext_resource type="Texture2D" uid="uid://bmusuyq6x6k1x" path="res://icon.png" id="1_g8bff"]
 [ext_resource type="Script" path="res://evidenceScene.gd" id="1_m77xj"]
@@ -16,11 +16,24 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33cnx"]
+bg_color = Color(0.403922, 0.6, 0.501961, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
 [node name="Control" type="Panel"]
-anchor_right = 0.124
+anchor_right = 0.391
 anchor_bottom = 0.19
-rect_min_size = Vector2(126.976, 114)
+rect_min_size = Vector2(400.384, 114)
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource( "StyleBoxFlat_gux7l" )
 script = ExtResource( "1_m77xj" )
 __meta__ = {
@@ -28,20 +41,20 @@ __meta__ = {
 }
 
 [node name="Sprite2D" type="TextureRect" parent="."]
-anchor_left = 0.231
-anchor_top = 0.258
-anchor_right = 0.231
-anchor_bottom = 0.258
+anchor_left = 0.062
+anchor_top = 0.344
+anchor_right = 0.062
+anchor_bottom = 0.344
 texture = ExtResource( "1_g8bff" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.02
+anchor_left = 0.031
 anchor_top = 0.044
-anchor_right = 0.98
-anchor_bottom = 0.2
+anchor_right = 0.256
+anchor_bottom = 0.326
 theme = ExtResource( "2_b1nix" )
 theme_override_font_sizes/normal_font_size = 13
 text = "[center]I think that I love you"
@@ -54,6 +67,28 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.254
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource( "StyleBoxFlat_33cnx" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.02
+anchor_top = 0.388
+anchor_right = 0.98
+anchor_bottom = 0.98
+theme = ExtResource( "2_b1nix" )
+theme_override_font_sizes/normal_font_size = 19
+text = "The mater of love is not a trival thing. But they professed it to you."
+bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

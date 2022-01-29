@@ -132,15 +132,15 @@ script = ExtResource( "4_hfcs3" )
 [node name="ScrollContainer" type="ScrollContainer" parent="PopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 130.0
+offset_right = 404.0
 offset_bottom = 96.0
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="PopupPanel/ScrollContainer"]
-offset_right = 126.0
+[node name="vBoxContainer" type="VBoxContainer" parent="PopupPanel/ScrollContainer"]
+offset_right = 400.0
 offset_bottom = 114.0
-columns = 5
+size_flags_horizontal = 3
 
-[node name="Control" parent="PopupPanel/ScrollContainer/GridContainer" instance=ExtResource( "5_pv68c" )]
+[node name="Control" parent="PopupPanel/ScrollContainer/vBoxContainer" instance=ExtResource( "5_pv68c" )]
 
 [connection signal="pressed" from="evidenceButton" to="PopupPanel" method="_on_evidence_button_pressed"]

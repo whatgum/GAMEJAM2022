@@ -1,6 +1,7 @@
+VBoxContainer
+Panel
 TextureButton
 Button
-Panel
 TextureRect
 RichTextLabel
 Sprite2D
@@ -8,7 +9,6 @@ ScrollContainer
 GridContainer
 PopupPanel
 Popup
-VBoxContainer
 Control
 Container
 NinePatchRect
