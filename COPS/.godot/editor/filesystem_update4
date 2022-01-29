@@ -1,9 +1,7 @@
-res://CreateQuestion.gd
-res://DialogPopup.tscn
+res://CoersionMinigame.gd
+res://CoersionScene.tscn
 res://QuestioningScene.tscn
-res://addText.gd
 res://gameTheme.tres
 res://main.tscn
 res://questionScene.tscn
 res://top-secret-stamp/Font.tres
-res://top-secret-stamp/TypeFont.tres
