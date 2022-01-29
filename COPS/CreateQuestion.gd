@@ -6,3 +6,8 @@ func passQuestion(string : String) -> void:
 	var newQuestion = question.instance();
 	newQuestion.init(string)
 	self.add_child(newQuestion)
+
+func sendQuestion(string : String) -> void: 
+	if(string.begins_with("[center]")):
+		string = string.substr(8)
+	print("ask this : " + string)

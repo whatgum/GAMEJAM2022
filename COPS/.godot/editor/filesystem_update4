@@ -1,6 +1,8 @@
+res://CreateQuestion.gd
 res://PopupPanel.gd
 res://QuestioningScene.gd
 res://QuestioningScene.tscn
+res://addText.gd
 res://evidenceScene.gd
 res://evidenceScene.tscn
 res://gameTheme.tres

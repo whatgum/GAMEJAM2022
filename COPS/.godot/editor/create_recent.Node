@@ -1,8 +1,8 @@
+TextureButton
+TextureRect
 VBoxContainer
 Panel
-TextureButton
 Button
-TextureRect
 RichTextLabel
 Sprite2D
 ScrollContainer

@@ -9,6 +9,5 @@ func init(texture : Texture, string : String, string2 : String) -> void:
 
 func _on_texture_button_pressed():
 	Input.set_custom_mouse_cursor(get_child(0).texture)
+	get_parent().get_parent().get_parent().sendEvidence(get_child(1).text)
 	get_parent().get_parent().get_parent().visible = false
-
-
