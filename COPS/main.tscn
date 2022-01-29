@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsc2apayw57u1"]
+
+[ext_resource type="Script" path="res://CoersionMinigame.gd" id="1_ck6mc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3hik"]
+size = Vector2(371, 462)
+
+[node name="Main" type="Node2D"]
+
+[node name="SuspectPlaceholder" type="Area2D" parent="."]
+position = Vector2(521, 368)
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SuspectPlaceholder"]
+shape = SubResource( "RectangleShape2D_e3hik" )
+
+[node name="CoersionMinigame" type="Node2D" parent="."]
+position = Vector2(532, 0)
+script = ExtResource( "1_ck6mc" )
+
+[node name="SuspicionZone" type="Control" parent="CoersionMinigame"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -331.0
+offset_top = 15.0
+offset_right = 331.0
+offset_bottom = 122.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="CoersionMinigame/SuspicionZone"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 27.0
+layout_direction = 2
+rect_min_size = Vector2(0.063, 0)
+step = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SuspicionLabel" type="RichTextLabel" parent="CoersionMinigame/SuspicionZone"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -29.5
+offset_right = 43.0
+offset_bottom = -4.5
+theme_override_colors/default_color = Color(1, 0.117647, 0.117647, 1)
+text = "SUSPICION"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TruthChance" type="RichTextLabel" parent="CoersionMinigame/SuspicionZone"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -49.0
+offset_right = 94.0
+offset_bottom = -24.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+text = "Chance to Get Truth: 0%"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

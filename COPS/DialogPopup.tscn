@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bobs0t73b4gvx"]
+
+[ext_resource type="Script" path="res://DialogPopup.gd" id="1_q88l6"]
+
+[node name="DialogPopup" type="RichTextLabel"]
+offset_right = 301.0
+offset_bottom = 98.0
+text = "Sample Sample Sample Sample Sample"
+scroll_active = false
+script = ExtResource( "1_q88l6" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="@@46292" type="VScrollBar" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+max_value = 23.0
+step = 1.0
+page = 23.0
