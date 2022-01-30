@@ -4,6 +4,8 @@ var _texture = load("res://icon.png")
 var _text = "I love oyu"
 var _text2 = "plz lov me"
 
+func _ready():
+	get_child(0).get_child(0).get_child(2).disabled = true
 
 # Called when the node enters the scene tree for the first time.
 func init(texture : Texture, string : String, string2 : String):

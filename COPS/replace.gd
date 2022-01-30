@@ -10,3 +10,4 @@ func _on_area_2d_body_entered(body):
 	var evidences = [newEvidence]
 	get_parent().init(evidences)
 	body.get_parent().queue_free()
+	

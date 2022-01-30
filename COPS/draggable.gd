@@ -1,6 +1,6 @@
 extends RigidDynamicBody2D
 
-var click_radius := 100
+var click_radius := 20
 var dragging = false
 
 
@@ -8,7 +8,6 @@ var dragging = false
 func _input(event : InputEvent):
 	if(event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
 		if (event.position - self.global_position).length() < click_radius:
-			print('in our event')
 			# Start dragging if the click is on the sprite.
 			if not dragging && event.pressed:
 				dragging = true

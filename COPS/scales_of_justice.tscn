@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy2a78q5pwjl8"]
+[gd_scene load_steps=14 format=3 uid="uid://cy2a78q5pwjl8"]
 
 [ext_resource type="Script" path="res://scales_of_justice.gd" id="1_4c8xd"]
-[ext_resource type="PackedScene" uid="uid://dyc0bauioxxtw" path="res://evidenceBlock.tscn" id="2_fagcq"]
 [ext_resource type="Script" path="res://replace.gd" id="3_0hvxw"]
+[ext_resource type="Script" path="res://scaleLines.gd" id="4_ikgbg"]
+[ext_resource type="Script" path="res://scale.gd" id="5_u5w11"]
+[ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="6_ltd7o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cs7g"]
 bg_color = Color(0.513726, 0.6, 0.376471, 1)
@@ -18,13 +20,34 @@ size = Vector2(20.5714, 42)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i32o6"]
 size = Vector2(1875.5, 108.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nabn5"]
+
+[sub_resource type="Gradient" id="Gradient_jrcc1"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0904033, 0.0904033, 0.0904033, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k637w"]
+gradient = SubResource( "Gradient_jrcc1" )
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ww6n4"]
+size = Vector2(16.8, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs8yq"]
+size = Vector2(287, 20)
+
 [node name="ScalesOfJustice" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( "1_4c8xd" )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(101, 411, 259, 101, 410, 410)
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+script = ExtResource( "4_ikgbg" )
 
 [node name="quesionsPanel" type="Panel" parent="."]
 anchor_left = 0.699
@@ -40,9 +63,6 @@ __meta__ = {
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Node2D" parent="containerOfEvidence" instance=ExtResource( "2_fagcq" )]
-position = Vector2(767, 316)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(865, 561)
@@ -60,9 +80,97 @@ position = Vector2(780, 81)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( "3_0hvxw" )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(526, 813)
 shape = SubResource( "RectangleShape2D_i32o6" )
 
+[node name="guilty" type="StaticBody2D" parent="."]
+position = Vector2(102, 409)
+scale = Vector2(10, 1)
+script = ExtResource( "5_u5w11" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="guilty"]
+shape = SubResource( "RectangleShape2D_nabn5" )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="guilty"]
+scale = Vector2(0.01, 20)
+texture = SubResource( "GradientTexture1D_k637w" )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="guilty"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="guilty/Area2D"]
+position = Vector2(-0.200001, -18)
+shape = SubResource( "RectangleShape2D_ww6n4" )
+
+[node name="inocent" type="StaticBody2D" parent="."]
+position = Vector2(405, 408)
+scale = Vector2(10, 1)
+script = ExtResource( "5_u5w11" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inocent"]
+shape = SubResource( "RectangleShape2D_nabn5" )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="inocent"]
+scale = Vector2(0.01, 20)
+texture = SubResource( "GradientTexture1D_k637w" )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="inocent"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inocent/Area2D"]
+position = Vector2(-0.200001, -18)
+shape = SubResource( "RectangleShape2D_ww6n4" )
+
+[node name="scaleFulcromPoint" type="Node2D" parent="."]
+position = Vector2(253, 132)
+
+[node name="Area2D2" type="Area2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(865, 519)
+shape = SubResource( "RectangleShape2D_cs8yq" )
+
+[node name="pronoucenments" type="Button" parent="."]
+visible = false
+anchor_left = 0.2
+anchor_top = 0.75
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_right = 8.0
+offset_bottom = 31.0
+theme = ExtResource( "6_ltd7o" )
+theme_override_font_sizes/font_size = 50
+text = "PRONOUNCE JUDGEMENT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="guilty" method="_on_guilty_remove_from_other_scale"]
+[connection signal="body_entered" from="Area2D" to="inocent" method="_on_guilty_remove_from_other_scale"]
+[connection signal="move" from="guilty" to="inocent" method="_on_guilty_move"]
+[connection signal="removeFromOtherScale" from="guilty" to="inocent" method="_on_guilty_remove_from_other_scale"]
+[connection signal="body_entered" from="guilty/Area2D" to="guilty" method="_on_area_2d_body_entered"]
+[connection signal="move" from="inocent" to="guilty" method="_on_inocent_move"]
+[connection signal="removeFromOtherScale" from="inocent" to="guilty" method="_on_inocent_remove_from_other_scale"]
+[connection signal="body_entered" from="inocent/Area2D" to="inocent" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="guilty" method="_on_guilty_remove_from_other_scale"]
+[connection signal="body_entered" from="Area2D2" to="inocent" method="_on_guilty_remove_from_other_scale"]
