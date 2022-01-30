@@ -8,7 +8,8 @@ signal startConversation(detectiveDict, interviewDict, key)
 signal pressAtEnd()
 signal addQuestion(question, pressable)
 signal addEvidence(texture,title, description)
-
+signal startAbuse
+signal startcohersion
 
 func _process(delta):
 	if(Input.is_action_just_pressed("removeEvidence")):
@@ -125,3 +126,11 @@ func _on_dialog_manager_add_questions():
 		for i in arrayOfEvidence:
 			emit_signal("addEvidence", i[0], i[1], i[2])
 		arrayOfEvidence.erase(currentQuestion)
+
+
+func _on_abuse_pressed():
+	emit_signal("startAbuse")
+
+
+func _on_coherse_pressed():
+	emit_signal("startCohersion")

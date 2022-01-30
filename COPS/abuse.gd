@@ -1,7 +1,7 @@
 extends Control
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func init():
 	self.visible = true
 	get_child(3).start()
 	get_child(1).get_child(0).time = 30.00
