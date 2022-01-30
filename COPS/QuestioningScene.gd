@@ -95,15 +95,15 @@ var questionDictioary := {
 var evidenceDictionary := {
 	"WHAT'S YOUR ALIBI?" : 
 		[[texture,"Confession: Whereabouts", "He admitted he was near the address of the crime"]],
-	"CONFESSION: DARK PAST" :
+	"SAYS HERE YOU'VE GOT HISTORY WITH THE CRIME SCENE. WANNA EXPLAIN?" :
 		[[texture, "Confession: Dark Past", "He's got a record at this address. Got into an altercation with 'Bowling Staff', so he says"]],
-	"ADMISSION: COMFORTABLE" :
+	"HOW DO YOU LIKE THE STATION? COMFORTABLE?" :
 		[[texture, "Admission: Comfortable", "At first, he said he wasn't comfy- but with some convincing he changed his mind. What else is he hiding?"]],
-	"ADMISSION: MORALLY BANKRUPT" :
+	"ONE MORE TIME: WHAT HAPPENED AT THE BOWLING ALLEY?" :
 		[[texture, "Admission: Morally Bankrupt", "He feels no remorse no matter whose lives he destroys. No matter how much cheese he hogs."]],
-	"ADMISSION: SKETCH RESEMBLENCE" :
+	"PRESENT HIM WITH AN EYEWITNESS SKETCH OF THE SUSPECT" :
 		[[texture, "Admission: Sketch Resemblence", "Artists work in many mediums, this one just happens to be crayon. It does look like him, though."]],
-	"MENTAL STATE: FULL-ON VILLAIN" :
+	"PRESENT YOUR FACTS LOGICALLY" :
 		[[texture, "Mental State: Full-On Villain", "By pushing him to his very limits, he seems to have gone into what psychologists call a 'Joker State'."]]
 }
 
