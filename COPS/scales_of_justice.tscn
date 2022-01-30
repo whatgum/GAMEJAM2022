@@ -112,6 +112,20 @@ __meta__ = {
 position = Vector2(-0.200001, -18)
 shape = SubResource( "RectangleShape2D_ww6n4" )
 
+[node name="RichTextLabel" type="RichTextLabel" parent="guilty"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 191.0
+offset_bottom = 9.0
+rect_scale = Vector2(0.1, 1)
+theme = ExtResource( "6_ltd7o" )
+theme_override_font_sizes/normal_font_size = 20
+text = "[center]GUILTY"
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="inocent" type="StaticBody2D" parent="."]
 position = Vector2(405, 408)
 scale = Vector2(10, 1)
@@ -135,6 +149,20 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="inocent/Area2D"]
 position = Vector2(-0.200001, -18)
 shape = SubResource( "RectangleShape2D_ww6n4" )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="inocent"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 191.0
+offset_bottom = 9.0
+rect_scale = Vector2(0.1, 1)
+theme = ExtResource( "6_ltd7o" )
+theme_override_font_sizes/normal_font_size = 20
+text = "[center]INNOCENT"
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="scaleFulcromPoint" type="Node2D" parent="."]
 position = Vector2(253, 132)

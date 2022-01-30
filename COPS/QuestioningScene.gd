@@ -13,6 +13,7 @@ signal startcohersion
 signal removeCurrentQuestion
 signal outOfQuestions
 
+
 func _process(delta):
 	if(Input.is_action_just_pressed("removeEvidence")):
 		Input.set_custom_mouse_cursor(null)
@@ -23,6 +24,8 @@ func _on_button_pressed():
 	if(currentEvidence != ""):
 		_on_question_container_start_dialogue(currentEvidence, false)
 	Input.set_custom_mouse_cursor(null)
+
+
 
 # Purpose : This dictionary uses questions asked as keys
 #			as values it holds arrays consisting of 2 dictionaries
@@ -132,13 +135,14 @@ func _on_dialog_manager_add_questions():
 		arrayOfEvidence.erase(currentQuestion)
 	emit_signal("removeCurrentQuestion")
 
+
 func _on_abuse_pressed():
 	print('pressed button')
 	emit_signal("startAbuse")
 
 
 func _on_coherse_pressed():
-	emit_signal("startCohersion")
+	emit_signal("startcohersion")
 
 
 func _on_question_container_out_of_questions():

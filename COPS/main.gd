@@ -18,7 +18,7 @@ func _on_questioning_start_abuse():
 func _on_questioning_startcohersion():
 	get_child(1).visible = true
 	get_child(2).visible = false
-	get_child(1).init()
+	get_child(1).startGame()
 
 
 func _on_abuse_comes_cheap_abuse_minigame_finished(won):
@@ -47,3 +47,11 @@ func initEndGame():
 		newEvidence.init(i._texture,i._text, i._text2)
 		array.append(newEvidence)
 	get_child(3).init(array)
+
+
+func _on_coersion_minigame_coersion_minigame_finished(won):
+	get_child(1).visible = false
+	get_child(2).visible = true
+	if(won):
+		get_child(2).successful_minigame()
+	print("returned minigame")
