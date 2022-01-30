@@ -3,10 +3,10 @@ extends Node2D
 var to : int
 var positionToGoTo : Vector2
 
-var kickIcon = load("res://icon.png")
-var punchIcon = load("res://icon.png")
-var insultIcon = load("res://icon.png")
-var pokeIcon = load("res://icon.png")
+var kickIcon = load("res://kickIcon.png")
+var punchIcon = load("res://punchIcon.png")
+var insultIcon = load("res://insultIcon.png")
+var pokeIcon = load("res://pokeIcon.png")
 
 
 @export var blue = Color("#4682b4")

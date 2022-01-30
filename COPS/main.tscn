@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsc2apayw57u1"]
+[gd_scene load_steps=14 format=3 uid="uid://dsc2apayw57u1"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3bme8"]
 [ext_resource type="PackedScene" uid="uid://cktpm3hemd7mf" path="res://CoersionScene.tscn" id="1_t1pst"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://laecrd5skqv5" path="res://abuse.tscn" id="4_xf2yb"]
 [ext_resource type="Script" path="res://mouth.gd" id="5_rxvfs"]
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="6_51bq0"]
+[ext_resource type="Texture2D" uid="uid://nq05d5oes8rk" path="res://AdobeStock_309388055.jpeg" id="6_xfvk1"]
 [ext_resource type="Script" path="res://Countdown.gd" id="7_jhq4d"]
 [ext_resource type="PackedScene" uid="uid://3eyacr1cputj" path="res://endScene.tscn" id="8_s8oqr"]
 
@@ -59,16 +60,30 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="Sprite2D" type="Sprite2D" parent="SuspectPlaceholder"]
+position = Vector2(-5.71045, -69)
+scale = Vector2(0.210365, 0.194644)
+z_index = -1
+texture = ExtResource( "6_xfvk1" )
+
 [node name="CoersionMinigame" parent="." instance=ExtResource( "1_t1pst" )]
 visible = false
 
 [node name="Questioning" parent="." instance=ExtResource( "2_he48q" )]
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="ScalesOfJustice" parent="." instance=ExtResource( "3_pk2mt" )]
 visible = false
 
 [node name="ABUSE COMES CHEAP" parent="." instance=ExtResource( "4_xf2yb" )]
 visible = false
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_left = 0.01
@@ -77,6 +92,7 @@ anchor_right = 0.258
 anchor_bottom = 0.097
 theme = ExtResource( "6_51bq0" )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
