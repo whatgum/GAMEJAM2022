@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsc2apayw57u1"]
+[gd_scene load_steps=10 format=3 uid="uid://dsc2apayw57u1"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3bme8"]
 [ext_resource type="PackedScene" uid="uid://cktpm3hemd7mf" path="res://CoersionScene.tscn" id="1_t1pst"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://laecrd5skqv5" path="res://abuse.tscn" id="4_xf2yb"]
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="6_51bq0"]
 [ext_resource type="Script" path="res://Countdown.gd" id="7_jhq4d"]
+[ext_resource type="PackedScene" uid="uid://3eyacr1cputj" path="res://endScene.tscn" id="8_s8oqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3hik"]
 size = Vector2(371, 462)
@@ -65,9 +66,13 @@ __meta__ = {
 time = 300.0
 usedText = "Time Till Laywer Arrives: "
 
+[node name="endScene" parent="." instance=ExtResource( "8_s8oqr" )]
+visible = false
+
 [connection signal="coersion_minigame_finished" from="CoersionMinigame" to="." method="_on_coersion_minigame_coersion_minigame_finished"]
 [connection signal="outOfQuestions" from="Questioning" to="." method="_on_questioning_out_of_questions"]
 [connection signal="startAbuse" from="Questioning" to="." method="_on_questioning_start_abuse"]
 [connection signal="startcohersion" from="Questioning" to="." method="_on_questioning_startcohersion"]
+[connection signal="judgement" from="ScalesOfJustice" to="." method="_on_scales_of_justice_judgement"]
 [connection signal="abuse_minigame_finished" from="ABUSE COMES CHEAP" to="." method="_on_abuse_comes_cheap_abuse_minigame_finished"]
 [connection signal="gameOver" from="Panel/RichTextLabel" to="." method="_on_rich_text_label_game_over"]

@@ -1,7 +1,8 @@
 extends Control
 
-var evidenceBlock = load("res://evidenceBlock.tscn")
+signal judgement(verdict)
 
+var evidenceBlock = load("res://evidenceBlock.tscn")
 var amtOfEvidnece = -1
 # Called when the node enters the scene tree for the first time.
 func init(arrayOfEvidence : Array):
@@ -18,3 +19,12 @@ func _process(delta):
 		get_child(10).visible = true
 	else:
 		get_child(10).visible = false
+
+
+func _on_pronoucenments_pressed():
+	if(get_child(6).evidencesOnMe.size() > get_child(7).evidencesOnMe.size()):
+		emit_signal("judgement", "GUILTY")
+	if(get_child(6).evidencesOnMe.size() < get_child(7).evidencesOnMe.size()):
+		emit_signal("judgement", "INNOCENT")
+	if(get_child(6).evidencesOnMe.size() == get_child(7).evidencesOnMe.size()):
+		emit_signal("judgement", "UNDECIDED")

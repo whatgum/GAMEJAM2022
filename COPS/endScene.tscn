@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://3eyacr1cputj"]
+
+[ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_wffx0"]
+[ext_resource type="Script" path="res://endScene.gd" id="2_r31bh"]
+
+[node name="endScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( "1_wffx0" )
+script = ExtResource( "2_r31bh" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.3
+theme_override_font_sizes/normal_font_size = 80
+text = "[center]YOU LOSE!"
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.05
+anchor_top = 0.275
+anchor_right = 0.95
+anchor_bottom = 0.6
+theme_override_font_sizes/normal_font_size = 35
+text = "[center]The Perps laywer showed up before you could discover the truth!
+Evidence Gathered : 
+Amount of abuse :
+Amount of Persuasion :
+Vertict : UNDECIDED
+"
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.458
+anchor_top = 0.653
+anchor_right = 0.55
+anchor_bottom = 0.735
+text = "TRY AGAIN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
