@@ -15,6 +15,9 @@ anchor_left = 0.25
 anchor_top = 0.082
 anchor_right = 0.25
 anchor_bottom = 0.082
+offset_top = 0.799999
+offset_right = 617.0
+offset_bottom = 359.8
 __meta__ = {
 "_edit_use_anchors_": false
 }
