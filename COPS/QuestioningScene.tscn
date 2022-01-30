@@ -162,7 +162,7 @@ anchor_top = 0.5
 anchor_right = 0.8
 anchor_bottom = 0.8
 theme = ExtResource( "1_ieqv2" )
-text = "COHERSE HIM"
+text = "PERSUADE HIM"
 
 [connection signal="addEvidence" from="." to="PopupPanel/ScrollContainer/evidenceContainer" method="passEvidence"]
 [connection signal="addQuestion" from="." to="quesionsPanel/ScrollContainer/questionContainer" method="passQuestion"]
