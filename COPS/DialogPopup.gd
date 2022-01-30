@@ -22,5 +22,4 @@ func _process(delta):
 	
 	if modulate.a <= 0:
 		queue_free()
-		print(text.length())
 		emit_signal("finishedDialgue", text.substr(8))

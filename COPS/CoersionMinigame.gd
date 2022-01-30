@@ -16,6 +16,7 @@ extends Node2D
 #				the Sus O' Meter drops slower and slower, it will cost you
 #				time to maximize your chances. Game ends when you ask nicely. 
 
+signal coersion_minigame_finished(won)
 
 
 var suspicion : float = 0 # Between 0 and 100, 100 being losing
@@ -26,8 +27,10 @@ var susDecayMult : float = 1 # Number goes down the more the player sweettalks
 var susIncreaseMin : float = 20
 var susIncreaseMax : float = 35
 
+var result : bool = false
 var running : bool = true
 var timeElapsed : float = 0
+
 
 var susBar : ProgressBar
 var truthChanceLabel : RichTextLabel
@@ -64,11 +67,19 @@ func startGame():
 	susDecayBase = 2.5
 	susDecayMult = 1.0
 	displayedChance = 0
+	running = true
+
+
+func reset():
+	isDisplayingResult = false
+	exitButton.visible = false
+	resultLabel.text = ""
 
 func _process(delta):
 	updateGUI(delta)
 	decaySuspicion(delta)
-	
+
+
 
 func sweetTalk():
 	# increase sus
@@ -94,11 +105,12 @@ func askNicely():
 		# SUCCESS
 		print("SUCCESS ROLL=", roll)
 		endMinigame(true)
+		result = true
 	else:
 		# FAILURE
 		print("FAILURE ROLL=", roll)
 		endMinigame(false)
-	
+		result = false
 	
 
 func decaySuspicion(delta):
@@ -108,7 +120,7 @@ func decaySuspicion(delta):
 			suspicion = 0
 		elif suspicion > 100:
 			endMinigame(false)
-
+			result = false
 
 
 func updateGUI(delta):
@@ -147,16 +159,17 @@ func showResult(won):
 func endMinigame(isSuccessful):
 	running = false
 	showResult(isSuccessful)
-	pass
+
 
 func closeMinigame():
 	visible = false
-
+	emit_signal("coersion_minigame_finished", result)
+	reset()
 func _on_sweet_talk_button_pressed():
 	sweetTalk()
-	pass # Replace with function body.
+
 
 
 func _on_ask_nicely_button_pressed():
 	askNicely()
-	pass # Replace with function body.
+

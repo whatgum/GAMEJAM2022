@@ -42,7 +42,6 @@ func find_new_active_enemy(key):
 			var prompt = enemy.prompt
 			var next_character = prompt.substr(0, 1)
 			if next_character == key:
-				print("found new enemy that starts with %s" % next_character)
 				activeEnemy = enemy
 				currLetterIndex = 1
 				activeEnemy.set_next_character(currLetterIndex)
@@ -53,17 +52,15 @@ func processCurrentEnemy(key):
 	var prompt = activeEnemy.prompt
 	var next_character = prompt.substr(currLetterIndex, 1)
 	if key == next_character:
-		print("successfully typed %s" % key)
 		currLetterIndex += 1
 		activeEnemy.set_next_character(currLetterIndex)
 	if currLetterIndex == prompt.length():
-		print("done")
 		currLetterIndex = -1
 		activeEnemy.queue_free()
 		activeEnemy = null
 		emit_signal("reduceResistance", prompt)
-	else:
-		print("incorrectly typed %s instead of %s" % [key, next_character])
+
+
 
 
 func _unhandled_key_input(event):
@@ -75,7 +72,6 @@ func _unhandled_key_input(event):
 		key = key.to_lower()
 		if activeEnemy == null:
 			find_new_active_enemy(key)
-			
 		else:
 			processCurrentEnemy(key)
 			

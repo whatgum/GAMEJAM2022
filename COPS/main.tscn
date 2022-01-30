@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsc2apayw57u1"]
+[gd_scene load_steps=10 format=3 uid="uid://dsc2apayw57u1"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3bme8"]
 [ext_resource type="PackedScene" uid="uid://cktpm3hemd7mf" path="res://CoersionScene.tscn" id="1_t1pst"]
 [ext_resource type="PackedScene" uid="uid://dpr8fsxvr4c63" path="res://QuestioningScene.tscn" id="2_he48q"]
 [ext_resource type="PackedScene" uid="uid://cy2a78q5pwjl8" path="res://scales_of_justice.tscn" id="3_pk2mt"]
 [ext_resource type="PackedScene" uid="uid://laecrd5skqv5" path="res://abuse.tscn" id="4_xf2yb"]
+[ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="6_51bq0"]
+[ext_resource type="Script" path="res://Countdown.gd" id="7_jhq4d"]
+[ext_resource type="PackedScene" uid="uid://3eyacr1cputj" path="res://endScene.tscn" id="8_s8oqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3hik"]
 size = Vector2(371, 462)
@@ -37,5 +40,39 @@ visible = false
 [node name="ABUSE COMES CHEAP" parent="." instance=ExtResource( "4_xf2yb" )]
 visible = false
 
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.01
+anchor_top = 0.025
+anchor_right = 0.258
+anchor_bottom = 0.097
+theme = ExtResource( "6_51bq0" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.01
+anchor_top = 0.216
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( "6_51bq0" )
+theme_override_font_sizes/normal_font_size = 18
+text = "Time Till Laywer Arrives"
+bbcode_enabled = true
+script = ExtResource( "7_jhq4d" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+time = 300.0
+usedText = "Time Till Laywer Arrives: "
+
+[node name="endScene" parent="." instance=ExtResource( "8_s8oqr" )]
+visible = false
+
+[connection signal="coersion_minigame_finished" from="CoersionMinigame" to="." method="_on_coersion_minigame_coersion_minigame_finished"]
+[connection signal="outOfQuestions" from="Questioning" to="." method="_on_questioning_out_of_questions"]
 [connection signal="startAbuse" from="Questioning" to="." method="_on_questioning_start_abuse"]
 [connection signal="startcohersion" from="Questioning" to="." method="_on_questioning_startcohersion"]
+[connection signal="judgement" from="ScalesOfJustice" to="." method="_on_scales_of_justice_judgement"]
+[connection signal="abuse_minigame_finished" from="ABUSE COMES CHEAP" to="." method="_on_abuse_comes_cheap_abuse_minigame_finished"]
+[connection signal="gameOver" from="Panel/RichTextLabel" to="." method="_on_rich_text_label_game_over"]
