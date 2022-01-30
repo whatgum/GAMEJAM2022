@@ -33,8 +33,10 @@ func sendQuestion(string : String, pressable : bool, index : int) -> void:
 	get_tree().call_group("questions", "disableButtons", true)
 
 
+
 func _on_questioning_remove_current_question():
 	self.remove_child(get_child(currentIndex))
+
 
 func _process(delta):
 	if(!sent):

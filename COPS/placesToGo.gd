@@ -18,7 +18,7 @@ var flyingTypeAttack = load("res://FlyingTypeAttack.tscn")
 var activeEnemy = null
 var currLetterIndex = 0
 signal reduceResistance(prompt)
-
+signal shake
 var gameOver = false
 
 func _on_timer_timeout():
@@ -59,7 +59,7 @@ func processCurrentEnemy(key):
 		activeEnemy.queue_free()
 		activeEnemy = null
 		emit_signal("reduceResistance", prompt)
-
+		emit_signal("shake")
 
 
 

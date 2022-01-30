@@ -12,7 +12,8 @@ signal startAbuse
 signal startcohersion
 signal removeCurrentQuestion
 signal outOfQuestions
-
+signal startTalking
+signal stopTalking
 
 func _process(delta):
 	if(Input.is_action_just_pressed("removeEvidence")):
@@ -24,7 +25,6 @@ func _on_button_pressed():
 	if(currentEvidence != ""):
 		_on_question_container_start_dialogue(currentEvidence, false)
 	Input.set_custom_mouse_cursor(null)
-
 
 
 # Purpose : This dictionary uses questions asked as keys
@@ -88,6 +88,7 @@ var questionDictioary := {
 	"WALK HIM THROUGH THE CRIME" : [["PRESENT YOUR FACTS LOGICALLY", true]]
 }
 
+
 # Purpose : This dictionary uses questions asked as keys
 #			as values it holds arrays consisting of arrays
 #			these inner arrays stores evidence texture, the title of evidence and the description of evidence
@@ -121,7 +122,6 @@ func _on_question_container_start_dialogue(key : String, pressable : bool):
 		emit_signal("startConversation", ConversationDictionary[key][0], ConversationDictionary[key][1], key )
 
 
-
 func _on_dialog_manager_add_questions():
 	if(questionDictioary.has(currentQuestion)):
 		var arrayOfQuestions = questionDictioary[currentQuestion]
@@ -147,3 +147,11 @@ func _on_coherse_pressed():
 
 func _on_question_container_out_of_questions():
 	emit_signal("outOfQuestions")
+
+
+func _on_dialog_manager_start_talking():
+	emit_signal("startTalking")
+
+
+func _on_dialog_manager_stop_talking():
+	emit_signal("stopTalking")

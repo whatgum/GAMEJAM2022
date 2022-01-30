@@ -12,6 +12,8 @@ var interColor = Color("73b86a")
 
 signal showPopup
 signal addQuestions
+signal startTalking
+signal stopTalking
 
 func initDialog(detecitveDialogue : Dictionary, intervieweeDialogue : Dictionary, _key : String) -> void:
 	self.detecDic = detecitveDialogue
@@ -21,19 +23,25 @@ func initDialog(detecitveDialogue : Dictionary, intervieweeDialogue : Dictionary
 		setUpPopup(varients.DETECTIVE, detecDic[key])
 	if(interDic.has(key)):
 		setUpPopup(varients.INTERVEIWEE, interDic[key])
-
+		
 
 func setUpPopup(varient : int, dialogue : String) -> void:
 	var newPop : RichTextLabel
 	newPop = dialogPop.instantiate()
 	dialogue = "[center]" + dialogue
-	newPop.text = dialogue
+	get_bbcode_color_tag
+
 	newPop.connect("finishedDialgue", Callable(self, "startNext"))
 	match(varient):
 		varients.DETECTIVE:
 			get_child(1).add_child(newPop)
+			dialogue = get_bbcode_color_tag(detecColor) + dialogue
+			emit_signal("stopTalking")
 		varients.INTERVEIWEE:
 			get_child(0).add_child(newPop)
+			dialogue = get_bbcode_color_tag(interColor) + dialogue
+			emit_signal("startTalking")
+	newPop.text = dialogue
 	newPop.rect_size = rectSize
 
 
@@ -50,7 +58,15 @@ func startNext(newKey : String) -> void:
 		else:
 			get_tree().call_group("questions", "disableButtons", false)
 			emit_signal("addQuestions")
-
+		emit_signal("stopTalking")
 
 func _on_questioning_press_at_end():
 	pressable = true
+
+
+func get_bbcode_color_tag(color: Color) -> String:
+	return "[color=#" + color.to_html(false) + "]"
+
+
+func get_bbcode_end_color_tag() -> String:
+	return "[/color]"

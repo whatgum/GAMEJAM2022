@@ -215,6 +215,7 @@ text = "Ok"
 [connection signal="gameOver" from="ProgressBar" to="." method="gameOver"]
 [connection signal="gameOver" from="Panel/RichTextLabel" to="." method="gameOver"]
 [connection signal="reduceResistance" from="placesToGo" to="ProgressBar" method="_on_places_to_go_reduce_resistance"]
+[connection signal="shake" from="placesToGo" to="." method="_on_places_to_go_shake"]
 [connection signal="area_entered" from="placesToGo/left/Area2D" to="placesToGo/left/Area2D" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="placesToGo/uperLeft/Area2D" to="placesToGo/uperLeft/Area2D" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="placesToGo/bottomLeft/Area2D" to="placesToGo/bottomLeft/Area2D" method="_on_area_2d_area_entered"]

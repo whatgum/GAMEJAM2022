@@ -175,6 +175,8 @@ text = "PERSUADE HIM"
 [connection signal="pressed" from="evidenceButton" to="PopupPanel" method="_on_evidence_button_pressed"]
 [connection signal="addQuestions" from="dialogManager" to="." method="_on_dialog_manager_add_questions"]
 [connection signal="showPopup" from="dialogManager" to="pressPopup" method="_on_dialog_manager_show_popup"]
+[connection signal="startTalking" from="dialogManager" to="." method="_on_dialog_manager_start_talking"]
+[connection signal="stopTalking" from="dialogManager" to="." method="_on_dialog_manager_stop_talking"]
 [connection signal="popup_hide" from="pressPopup" to="pressPopup" method="_on_press_popup_popup_hide"]
 [connection signal="pressed" from="pressPopup/Panel/abuse" to="." method="_on_abuse_pressed"]
 [connection signal="pressed" from="pressPopup/Panel/abuse" to="pressPopup" method="_on_pressed"]

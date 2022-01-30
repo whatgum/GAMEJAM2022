@@ -1,7 +1,7 @@
 extends Control
 
 signal abuse_minigame_finished(won)
-
+signal shake
 var won = false
 var alreadyPressed = false
 func _ready():
@@ -51,3 +51,7 @@ func _on_button_pressed():
 func _on_popup_popup_hide():
 	if(!alreadyPressed):
 		_on_button_pressed()
+
+
+func _on_places_to_go_shake():
+	emit_signal("shake")
