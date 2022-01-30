@@ -10,10 +10,11 @@ signal addQuestion(question, pressable)
 signal addEvidence(texture,title, description)
 signal startAbuse
 signal startcohersion
+signal removeCurrentQuestion
+signal outOfQuestions
 
 func _process(delta):
 	if(Input.is_action_just_pressed("removeEvidence")):
-		print("pressed button")
 		Input.set_custom_mouse_cursor(null)
 		currentEvidence = ""
 
@@ -89,7 +90,7 @@ var questionDictioary := {
 #			these inner arrays stores evidence texture, the title of evidence and the description of evidence
 #			These inner arrays are used to create new evidence scenes for the player to view
 var evidenceDictionary := {
-	"CONFESSION: WHEREABOUTS" : 
+	"WHAT'S YOUR ALIBI?" : 
 		[[texture,"Confession: Whereabouts", "He admitted he was near the address of the crime"]],
 	"CONFESSION: DARK PAST" :
 		[[texture, "Confession: Dark Past", "He's got a record at this address. Got into an altercation with 'Bowling Staff', so he says"]],
@@ -104,10 +105,13 @@ var evidenceDictionary := {
 }
 
 
+func successful_minigame():
+	_on_dialog_manager_add_questions()
+
+
 func _on_question_container_start_dialogue(key : String, pressable : bool):
 	key = key.to_upper()
 	currentQuestion = key
-	print(key)
 	if(ConversationDictionary.has(key)):
 		if(pressable):
 			emit_signal("pressAtEnd")
@@ -126,11 +130,16 @@ func _on_dialog_manager_add_questions():
 		for i in arrayOfEvidence:
 			emit_signal("addEvidence", i[0], i[1], i[2])
 		arrayOfEvidence.erase(currentQuestion)
-
+	emit_signal("removeCurrentQuestion")
 
 func _on_abuse_pressed():
+	print('pressed button')
 	emit_signal("startAbuse")
 
 
 func _on_coherse_pressed():
 	emit_signal("startCohersion")
+
+
+func _on_question_container_out_of_questions():
+	emit_signal("outOfQuestions")
