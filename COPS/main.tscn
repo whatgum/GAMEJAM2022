@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsc2apayw57u1"]
+[gd_scene load_steps=7 format=3 uid="uid://dsc2apayw57u1"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_3bme8"]
 [ext_resource type="PackedScene" uid="uid://cktpm3hemd7mf" path="res://CoersionScene.tscn" id="1_t1pst"]
+[ext_resource type="PackedScene" uid="uid://dpr8fsxvr4c63" path="res://QuestioningScene.tscn" id="2_he48q"]
+[ext_resource type="PackedScene" uid="uid://cy2a78q5pwjl8" path="res://scales_of_justice.tscn" id="3_pk2mt"]
+[ext_resource type="PackedScene" uid="uid://laecrd5skqv5" path="res://abuse.tscn" id="4_xf2yb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3hik"]
 size = Vector2(371, 462)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_3bme8" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SuspectPlaceholder" type="Area2D" parent="."]
 position = Vector2(521, 368)
@@ -17,3 +27,15 @@ __meta__ = {
 shape = SubResource( "RectangleShape2D_e3hik" )
 
 [node name="CoersionMinigame" parent="." instance=ExtResource( "1_t1pst" )]
+visible = false
+
+[node name="Questioning" parent="." instance=ExtResource( "2_he48q" )]
+
+[node name="ScalesOfJustice" parent="." instance=ExtResource( "3_pk2mt" )]
+visible = false
+
+[node name="ABUSE COMES CHEAP" parent="." instance=ExtResource( "4_xf2yb" )]
+visible = false
+
+[connection signal="startAbuse" from="Questioning" to="." method="_on_questioning_start_abuse"]
+[connection signal="startcohersion" from="Questioning" to="." method="_on_questioning_startcohersion"]

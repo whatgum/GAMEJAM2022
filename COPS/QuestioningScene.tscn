@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpr8fsxvr4c63"]
+[gd_scene load_steps=11 format=3 uid="uid://dpr8fsxvr4c63"]
 
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_ieqv2"]
 [ext_resource type="Script" path="res://QuestioningScene.gd" id="1_krfu3"]
@@ -8,9 +8,6 @@
 [ext_resource type="Script" path="res://evidenceContainer.gd" id="6_md2po"]
 [ext_resource type="PackedScene" uid="uid://n4r5ss1cea4o" path="res://DialogManager.tscn" id="7_qojd4"]
 [ext_resource type="Script" path="res://pressPopup.gd" id="8_wukcm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsj4o"]
-size = Vector2(371, 462)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyfb7"]
 bg_color = Color(0.513726, 0.6, 0.376471, 1)
@@ -48,15 +45,6 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SuspectPlaceholder" type="Area2D" parent="."]
-position = Vector2(521, 368)
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SuspectPlaceholder"]
-shape = SubResource( "RectangleShape2D_fsj4o" )
 
 [node name="quesionsPanel" type="Panel" parent="."]
 anchor_left = 0.699
@@ -186,3 +174,5 @@ text = "COHERSE HIM"
 [connection signal="addQuestions" from="dialogManager" to="." method="_on_dialog_manager_add_questions"]
 [connection signal="showPopup" from="dialogManager" to="pressPopup" method="_on_dialog_manager_show_popup"]
 [connection signal="popup_hide" from="pressPopup" to="pressPopup" method="_on_press_popup_popup_hide"]
+[connection signal="pressed" from="pressPopup/Panel/abuse" to="." method="_on_abuse_pressed"]
+[connection signal="pressed" from="pressPopup/Panel/coherse" to="." method="_on_coherse_pressed"]
