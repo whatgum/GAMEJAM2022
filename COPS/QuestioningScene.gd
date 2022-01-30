@@ -54,13 +54,13 @@ var ConversationDictionary := {
 		{"ONE MORE TIME: WHAT HAPPENED AT THE BOWLING ALLEY?" : "I'm gonna ask again, what went down that night at the bowling alley?"},
 		{"I'm gonna ask again, what went down that night at the bowling alley?" : "Ok, ok! But it's not what you think! Some weirdo just yelled at me because I 'took too much nacho cheese' or something!"}],
 	"DO YOU THINK IT'S OK TO HOG THE NACHO CHEESE?" : [
-		{"DO YOU THINK IT'S OK TO HOG THE NACHO CHEESE?" : "So sickos like you just get off on taking nacho cheese from hardworking Americans, huh?"},
+		{"DO YOU THINK IT'S OK TO HOG THE NACHO CHEESE?" : "So sickos like you just get off on taking from hardworking Americans, huh?"},
 		{"So sickos like you just get off on taking from hardworking Americans, huh?" : "I- what? No, I mean- Listen, this is completely off subject!"}],
 	"PRESENT HIM WITH AN EYEWITNESS SKETCH OF THE SUSPECT" : [
 		{"PRESENT HIM WITH AN EYEWITNESS SKETCH OF THE SUSPECT" : "(You uncrumple a sketch and lay it on the table. It is in crayon.) Look familiar?"},
 		{"(You uncrumple a sketch and lay it on the table. It is in crayon.) Look familiar?" : "What?? That doesn't look like me! I mean c'mon!! Did you make that just now??"}],
 	"CONFRONT WTIH ACCUSAL" : [
-		{"CONFRONT WITH ACCUSAL" : "Let's stop playing games. Last night, you totally drained the nacho machine. Dry nachos from 7 PM on. Barely even warm."},
+		{"CONFRONT WTIH ACCUSAL" : "Let's stop playing games. Last night, you totally drained the nacho machine. Dry nachos from 7 PM on. Barely even warm."},
 		{"Let's stop playing games. Last night, you totally drained the nacho machine. Dry nachos from 7 PM on. Barely even warm." : "What?!? That?!? I mean, no!! I wouldn't! I'm not that GUY anymore!"}],
 	"WALK HIM THROUGH THE CRIME" : [
 		{"WALK HIM THROUGH THE CRIME" : "You kept filling your nacho bin time after time, and eventually the well dried up, didn't it?"},
@@ -80,11 +80,11 @@ var questionDictioary := {
 	"A CERTAIN SOMETHING WENT MISSING LAST NIGHT..." : [["WHAT'S YOUR ALIBI?", true], 
 												["SAYS HERE YOU'VE GOT HISTORY WITH THE CRIME SCENE. WANNA EXPLAIN?", true],
 												["HOW DO YOU LIKE THE STATION? COMFORTABLE?", true]],
-	"CONFESSION: DARK PAST" : [["ONE MORE TIME: WHAT HAPPENED AT THE BOWLING ALLEY?", false]],
+	"SAYS HERE YOU'VE GOT HISTORY WITH THE CRIME SCENE. WANNA EXPLAIN?" : [["ONE MORE TIME: WHAT HAPPENED AT THE BOWLING ALLEY?", false]],
 	"ONE MORE TIME: WHAT HAPPENED AT THE BOWLING ALLEY?" : [["DO YOU THINK IT'S OK TO HOG THE NACHO CHEESE?", true]],
 	"DO YOU THINK IT'S OK TO HOG THE NACHO CHEESE?" :  [["PRESENT HIM WITH AN EYEWITNESS SKETCH OF THE SUSPECT", true],
 													["CONFRONT WITH ACCUSAL", false]],
-	"CONFRONT WITH ACCUSAL" : [["WALK HIM THROUGH THE CRIME", false]],
+	"CONFRONT WTIH ACCUSAL" : [["WALK HIM THROUGH THE CRIME", false]],
 	"WALK HIM THROUGH THE CRIME" : [["PRESENT YOUR FACTS LOGICALLY", true]]
 }
 

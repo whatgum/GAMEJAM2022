@@ -4,12 +4,12 @@
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="1_wr5y8"]
 
 [node name="DialogPopup" type="RichTextLabel"]
-offset_right = 301.0
-offset_bottom = 98.0
+offset_right = 473.0
+offset_bottom = 241.0
 theme = ExtResource( "1_wr5y8" )
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 22
 text = "Sample Sample Sample Sample Sample"
 bbcode_enabled = true
 scroll_active = false
