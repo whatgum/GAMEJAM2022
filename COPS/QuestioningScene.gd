@@ -59,15 +59,15 @@ var ConversationDictionary := {
 	"PRESENT HIM WITH AN EYEWITNESS SKETCH OF THE SUSPECT" : [
 		{"PRESENT HIM WITH AN EYEWITNESS SKETCH OF THE SUSPECT" : "(You uncrumple a sketch and lay it on the table. It is in crayon.) Look familiar?"},
 		{"(You uncrumple a sketch and lay it on the table. It is in crayon.) Look familiar?" : "What?? That doesn't look like me! I mean c'mon!! Did you make that just now??"}],
-	"CONFRONT WTIH ACCUSAL" : [
-		{"CONFRONT WTIH ACCUSAL" : "Let's stop playing games. Last night, you totally drained the nacho machine. Dry nachos from 7 PM on. Barely even warm."},
+	"CONFRONT WITH ACCUSAL" : [
+		{"CONFRONT WITH ACCUSAL" : "Let's stop playing games. Last night, you totally drained the nacho machine. Dry nachos from 7 PM on. Barely even warm."},
 		{"Let's stop playing games. Last night, you totally drained the nacho machine. Dry nachos from 7 PM on. Barely even warm." : "What?!? That?!? I mean, no!! I wouldn't! I'm not that GUY anymore!"}],
 	"WALK HIM THROUGH THE CRIME" : [
 		{"WALK HIM THROUGH THE CRIME" : "You kept filling your nacho bin time after time, and eventually the well dried up, didn't it?"},
 		{"You kept filling your nacho bin time after time, and eventually the well dried up, didn't it?" : "No! You've got no proof! And even if I did do it, I wouldn't even care, because the nacho cheese here SUCKS anyway!"}],
 	"PRESENT YOUR FACTS LOGICALLY" : [
 		{"PRESENT YOUR FACTS LOGICALLY" : "AAEEEEUUUUUUGGGHHHHHHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOHHHHHHHHHHHH YOU [b]FUCKER![/b] I'LL KILL YOU!"},
-		{"AAEEEEUUUUUUGGGHHHHHHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOHHHHHHHHHHHH YOU [b]FUCKER![/b] I'LL KILL YOU!" : "SEE YOU'VE GOT *RULES*! ME? I'VE GOT NO RULES! YOU'LL NEVER HAVE ANYTHING ON A GUY LIKE ME!!"}]}
+		{"AAEEEEUUUUUUGGGHHHHHHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOHHHHHHHHHHHH YOU [b]FUCKER![/b] I'LL KILL YOU!" : "SEE YOU'VE GOT *RULES*! ME? I'VE GOT NO RULES! YOU'LL NEVER HAVE ANYTHING ON A GUY LIKE ME!!"}]}
 
 
 # Purpose : This dictionary uses questions asked as keys
@@ -84,7 +84,7 @@ var questionDictioary := {
 	"ONE MORE TIME: WHAT HAPPENED AT THE BOWLING ALLEY?" : [["DO YOU THINK IT'S OK TO HOG THE NACHO CHEESE?", true]],
 	"DO YOU THINK IT'S OK TO HOG THE NACHO CHEESE?" :  [["PRESENT HIM WITH AN EYEWITNESS SKETCH OF THE SUSPECT", true],
 													["CONFRONT WITH ACCUSAL", false]],
-	"CONFRONT WTIH ACCUSAL" : [["WALK HIM THROUGH THE CRIME", false]],
+	"CONFRONT WITH ACCUSAL" : [["WALK HIM THROUGH THE CRIME", false]],
 	"WALK HIM THROUGH THE CRIME" : [["PRESENT YOUR FACTS LOGICALLY", true]]
 }
 
@@ -100,7 +100,7 @@ var evidenceDictionary := {
 		[[texture, "Confession: Dark Past", "He's got a record at this address. Got into an altercation with 'Bowling Staff', so he says"]],
 	"HOW DO YOU LIKE THE STATION? COMFORTABLE?" :
 		[[texture, "Admission: Comfortable", "At first, he said he wasn't comfy- but with some convincing he changed his mind. What else is he hiding?"]],
-	"ONE MORE TIME: WHAT HAPPENED AT THE BOWLING ALLEY?" :
+	"DO YOU THINK IT'S OK TO HOG THE NACHO CHEESE?" :
 		[[texture, "Admission: Morally Bankrupt", "He feels no remorse no matter whose lives he destroys. No matter how much cheese he hogs."]],
 	"PRESENT HIM WITH AN EYEWITNESS SKETCH OF THE SUSPECT" :
 		[[texture, "Admission: Sketch Resemblence", "Artists work in many mediums, this one just happens to be crayon. It does look like him, though."]],
