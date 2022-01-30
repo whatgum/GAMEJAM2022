@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bawf3pu6aar32"]
 
-[ext_resource type="Texture2D" uid="uid://bmusuyq6x6k1x" path="res://icon.png" id="1_g8bff"]
 [ext_resource type="Script" path="res://evidenceScene.gd" id="1_m77xj"]
+[ext_resource type="Texture2D" uid="uid://be5rtajmku7fa" path="res://evidenceIcon.png" id="2_8gc1a"]
 [ext_resource type="Theme" uid="uid://dfuo2s12dh10a" path="res://gameTheme.tres" id="2_b1nix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gux7l"]
@@ -41,11 +41,16 @@ __meta__ = {
 }
 
 [node name="Sprite2D" type="TextureRect" parent="."]
-anchor_left = 0.062
-anchor_top = 0.344
+anchor_left = 0.034
+anchor_top = 0.306
 anchor_right = 0.062
 anchor_bottom = 0.344
-texture = ExtResource( "1_g8bff" )
+offset_left = 0.176191
+offset_top = 0.116001
+offset_right = 279.176
+offset_bottom = 274.784
+rect_scale = Vector2(0.25, 0.25)
+texture = ExtResource( "2_8gc1a" )
 __meta__ = {
 "_edit_use_anchors_": false
 }

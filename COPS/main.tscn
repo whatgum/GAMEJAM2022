@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsc2apayw57u1"]
+[gd_scene load_steps=15 format=3 uid="uid://dsc2apayw57u1"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3bme8"]
 [ext_resource type="PackedScene" uid="uid://cktpm3hemd7mf" path="res://CoersionScene.tscn" id="1_t1pst"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://nq05d5oes8rk" path="res://AdobeStock_309388055.jpeg" id="6_xfvk1"]
 [ext_resource type="Script" path="res://Countdown.gd" id="7_jhq4d"]
 [ext_resource type="PackedScene" uid="uid://3eyacr1cputj" path="res://endScene.tscn" id="8_s8oqr"]
+[ext_resource type="AudioStream" uid="uid://bhkrqli3j7ygb" path="res://'Tain't nobody's biz-ness if I do.wav" id="14_6finn"]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -60,7 +61,7 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
-[node name="Sprite2D" type="Sprite2D" parent="SuspectPlaceholder"]
+[node name="background" type="Sprite2D" parent="SuspectPlaceholder"]
 position = Vector2(-5.71045, -69)
 scale = Vector2(0.210365, 0.194644)
 z_index = -1
@@ -115,6 +116,10 @@ usedText = "Time Till Laywer Arrives: "
 [node name="endScene" parent="." instance=ExtResource( "8_s8oqr" )]
 visible = false
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "14_6finn" )
+autoplay = true
+
 [connection signal="timeout" from="SuspectPlaceholder/blinkCloseTimer" to="SuspectPlaceholder/eyesAndFace" method="_on_timer_timeout"]
 [connection signal="timeout" from="SuspectPlaceholder/blickOpenTimer" to="SuspectPlaceholder/eyesAndFace" method="_on_blick_open_timer_timeout"]
 [connection signal="timeout" from="SuspectPlaceholder/mouthTimer" to="SuspectPlaceholder/mouth" method="_on_mouth_timer_timeout"]
@@ -129,3 +134,4 @@ visible = false
 [connection signal="abuse_minigame_finished" from="ABUSE COMES CHEAP" to="." method="_on_abuse_comes_cheap_abuse_minigame_finished"]
 [connection signal="shake" from="ABUSE COMES CHEAP" to="SuspectPlaceholder/eyesAndFace" method="_on_abuse_comes_cheap_shake"]
 [connection signal="gameOver" from="Panel/RichTextLabel" to="." method="_on_rich_text_label_game_over"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

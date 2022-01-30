@@ -3,7 +3,7 @@ extends Control
 var currentEvidence = ""
 var currentQuestion = ""
 
-var texture = load("res://icon.png")
+var texture = load("res://evidenceIcon.png")
 signal startConversation(detectiveDict, interviewDict, key)
 signal pressAtEnd()
 signal addQuestion(question, pressable)

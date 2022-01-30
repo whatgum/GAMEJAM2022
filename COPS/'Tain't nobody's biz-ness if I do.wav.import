@@ -1,0 +1,22 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+uid="uid://bhkrqli3j7ygb"
+path="res://.godot/imported/'Tain't nobody's biz-ness if I do.wav-34d260746680459a69497dd4f14d839e.sample"
+
+[deps]
+
+source_file="res://'Tain't nobody's biz-ness if I do.wav"
+dest_files=["res://.godot/imported/'Tain't nobody's biz-ness if I do.wav-34d260746680459a69497dd4f14d839e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

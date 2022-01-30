@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 
 [input]

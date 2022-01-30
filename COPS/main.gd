@@ -73,3 +73,7 @@ func _on_scales_of_justice_judgement(_verdict):
 	get_child(5).visible = false
 	get_child(6).init([amtOfEvidence, amtOfAbuse, amtOfPersuasion], verdict)
 	get_child(6).visible = true
+
+
+func _on_audio_stream_player_finished():
+	get_child(7).play()
